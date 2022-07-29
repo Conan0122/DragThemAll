@@ -14,6 +14,8 @@ public class Destroyer : MonoBehaviour
     Animator myAnimator;        // Destroyer animator
     Animator myTimerAnimator;   // Destroyer's Timer animator
 
+    //  ths s the change
+
     [Header("Destroyer Data")]
     [SerializeField] TMP_ColorGradient redColorGradient;
     [SerializeField] TMP_ColorGradient greenColorGradient;
