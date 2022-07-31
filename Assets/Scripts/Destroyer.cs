@@ -65,18 +65,21 @@ public class Destroyer : MonoBehaviour
 
             // Run the timer for 3 Secs
             // Enable Timer text
+            // Reset Timer Anim
             for (int i = 3; i >= 1; i--)
             {
                 cooldownText.alpha = 1;
                 cooldownText.colorGradientPreset = greenColorGradient;  // Change Text gradient to green
                 cooldownText.text = i.ToString();
                 myTimerAnimator.enabled = true;
+                myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
                 
                 // Wait for a second
                 yield return new WaitForSeconds(1f);
             }
             // Reset Timer Anim
-            myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
+            // myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
+            
 
             
             // Enable destroyer
@@ -93,12 +96,14 @@ public class Destroyer : MonoBehaviour
 
             // Run the timer for 3 Secs
             // Enable Timer text
+            // Reset Timer Anim
             for (int i = 3; i >= 1; i--)
             {
                 cooldownText.alpha = 1;
                 myTimerAnimator.enabled = true;
                 cooldownText.colorGradientPreset = redColorGradient;    // Change Text gradient to red
                 cooldownText.text = i.ToString();
+                myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
 
                 // Wait for a second
                 yield return new WaitForSeconds(1f);
