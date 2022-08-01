@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a5cf420239593fb40b9d832d11b29e64
+guid: fcbde8991b9d9434b96873104b35442c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7125273886997698564
-    second: UI_Play Button (pressed)_0
+      213: 6730521973212796202
+    second: UI_Share Button (Not pressed)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Play Button (pressed)_0
+      name: UI_Share Button (Not pressed)_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
-        width: 848
-        height: 864
+        x: 36
+        y: 0
+        width: 916
+        height: 916
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4085dd159de02e260800000000000000
-      internalID: 7125273886997698564
+      spriteID: a255f46231e976d50800000000000000
+      internalID: 6730521973212796202
       vertices: []
       indices: 
       edges: []

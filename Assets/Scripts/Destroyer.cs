@@ -7,6 +7,7 @@ using TMPro;
 public class Destroyer : MonoBehaviour
 {
     #region Variable Initialization
+    GameTimer gameTimer;
     SpriteRenderer mySpriteRenderer;
     Color32 myColor;
     TextMeshProUGUI cooldownText;
@@ -18,7 +19,6 @@ public class Destroyer : MonoBehaviour
     [SerializeField] TMP_ColorGradient redColorGradient;
     [SerializeField] TMP_ColorGradient greenColorGradient;
     [SerializeField] float destroyerCooldownDuration = 3;
-    bool isMatchOver = false;
     bool isDestroyerActive;
 
     #endregion
@@ -37,6 +37,7 @@ public class Destroyer : MonoBehaviour
 
     void Start()
     {
+        gameTimer = FindObjectOfType<GameTimer>();
         mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         cooldownText = GetComponentInChildren<TextMeshProUGUI>();
         myAnimator = GetComponent<Animator>();
@@ -47,7 +48,7 @@ public class Destroyer : MonoBehaviour
 
     IEnumerator DestroyerMechanismm()
     {
-        while (!isMatchOver)
+        while (!gameTimer.LevelTimerIsReached)
         {
             // Disable destroyer
             // Disable Timer

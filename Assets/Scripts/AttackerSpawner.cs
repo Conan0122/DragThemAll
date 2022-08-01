@@ -8,6 +8,8 @@ public class AttackerSpawner : MonoBehaviour
 {
     #region Variable Initialization
     
+    GameTimer gameTimer;
+
     [Header("Character Data")]
     [SerializeField] GameObject[] attackerPrefabs;
     [SerializeField] int[] weightsTable;    //  table of weights for each characters
@@ -17,7 +19,6 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] Transform[] attackerSpawnLocation;
     [SerializeField] float minDurationToSpawn = 0.5f, maxDurationToSpawn = 1.5f;
 
-    bool spawn = true;
     [Space(15)]
     int totalOfWeights;
     int randomNumber;
@@ -28,6 +29,8 @@ public class AttackerSpawner : MonoBehaviour
 
     private void Start()
     {
+        gameTimer = FindObjectOfType<GameTimer>();
+
         StartCoroutine(CalculateSpawn());
     }
 
@@ -39,7 +42,7 @@ public class AttackerSpawner : MonoBehaviour
             totalOfWeights += item;
         }
 
-        while (spawn)
+        while (!gameTimer.LevelTimerIsReached)
         {
             // Random Weighted based Spawning Algorithm
             // Iterate through the table till we get index where our random number falls
