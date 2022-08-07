@@ -27,10 +27,7 @@ public class Destroyer : MonoBehaviour
     public bool IsDestroyerActive
     {
         get { return isDestroyerActive; }
-        set
-        {
-            isDestroyerActive = value;
-        }
+        set { isDestroyerActive = value; }
     }
 
     #endregion
@@ -59,7 +56,7 @@ public class Destroyer : MonoBehaviour
             cooldownText.alpha = 0;
             myTimerAnimator.enabled = false;
             myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
-            
+
 
             // Wait for CD
             yield return new WaitForSeconds(destroyerCooldownDuration);
@@ -74,15 +71,11 @@ public class Destroyer : MonoBehaviour
                 cooldownText.text = i.ToString();
                 myTimerAnimator.enabled = true;
                 myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
-                
+
                 // Wait for a second
                 yield return new WaitForSeconds(1f);
             }
-            // Reset Timer Anim
-            // myTimerAnimator.Play("Destroyer Timer_anim", -1, 0f);
-            
 
-            
             // Enable destroyer
             // Run Destroyer anim
             // Disable Timer text
@@ -110,8 +103,6 @@ public class Destroyer : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         }
-
-
     }
 
 }

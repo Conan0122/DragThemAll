@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b8b27252264f504fa26471c87311e43
+guid: ab1857e80b968c146849c480c78f18b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1545589163685850535
-    second: UI_Back Button (Not pressed)_0
+      213: -6904228155793717379
+    second: UI_Mini Shop Button (pressed)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Back Button (Not pressed)_0
+      name: UI_Mini Shop Button (pressed)_0
       rect:
         serializedVersion: 2
-        x: 140
-        y: 128
-        width: 743
-        height: 765
+        x: 130
+        y: 120
+        width: 753
+        height: 773
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ad203ec729037510800000000000000
-      internalID: 1545589163685850535
+      spriteID: d774aad82114f20a0800000000000000
+      internalID: -6904228155793717379
       vertices: []
       indices: 
       edges: []

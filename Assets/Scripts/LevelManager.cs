@@ -13,13 +13,17 @@ public class LevelManager : MonoBehaviour
 {
     #region Variable Initialization
 
+    LevelSelector levelSelector;
+
     int currentSceneIndex;
     bool isPaused = false;
+    [SerializeField] float sceneTransitionDelay = 1f;
 
     #endregion
 
     private void Start()
     {
+        levelSelector = FindObjectOfType<LevelSelector>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -44,12 +48,34 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
         Time.timeScale = 1;
     }
-    
+
     public void PlayButton()
     {
         // Move to Level selector scene
         // Change this to specific scene later
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        StartCoroutine(SceneWaitAndLoad(currentSceneIndex + 1));
+    }
+
+    public void BackButton()
+    {
+        StartCoroutine(SceneWaitAndLoad(currentSceneIndex - 1));
+    }
+
+    public void LevelLoad(string level)
+    {
+        StartCoroutine(SceneWaitAndLoadLevel(level));
+    }
+
+    IEnumerator SceneWaitAndLoad(int scene)
+    {
+        yield return new WaitForSeconds(sceneTransitionDelay);
+        SceneManager.LoadScene(scene);
+    }
+
+    IEnumerator SceneWaitAndLoadLevel(string scene)
+    {
+        yield return new WaitForSeconds(sceneTransitionDelay);
+        SceneManager.LoadScene(scene);
     }
 
 }

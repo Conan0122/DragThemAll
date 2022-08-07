@@ -7,7 +7,6 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
     #region Variable Initialization
-    
     GameTimer gameTimer;
 
     [Header("Character Data")]
@@ -24,8 +23,18 @@ public class AttackerSpawner : MonoBehaviour
     int randomNumber;
     int randomSpawner;
     float randomSpawnDelay;
+    bool attackerSpawn = false;
 
     #endregion
+
+    #region Getters and setters
+    public bool AttackerSpawn
+    {
+        get { return attackerSpawn; }
+        set { attackerSpawn = value; }
+    }
+    #endregion
+
 
     private void Start()
     {
@@ -41,7 +50,7 @@ public class AttackerSpawner : MonoBehaviour
         {
             totalOfWeights += item;
         }
-
+        
         while (!gameTimer.LevelTimerIsReached)
         {
             // Random Weighted based Spawning Algorithm
@@ -52,8 +61,8 @@ public class AttackerSpawner : MonoBehaviour
                 if (randomNumber <= weightsTable[currentTableIndex])
                 {
                     randomSpawnDelay = Random.Range(minDurationToSpawn, maxDurationToSpawn);
-                    yield return new WaitForSeconds(randomSpawnDelay);
                     SpawnAttackers(currentTableIndex);
+                    yield return new WaitForSeconds(randomSpawnDelay);
                     randomNumber = Random.Range(0, totalOfWeights);
                     break;
                 }
@@ -62,6 +71,7 @@ public class AttackerSpawner : MonoBehaviour
                     randomNumber -= weightsTable[currentTableIndex];
                 }
             }
+
         }
     }
 
@@ -69,8 +79,12 @@ public class AttackerSpawner : MonoBehaviour
     {
         randomSpawner = Random.Range(0, attackerSpawnLocation.Length);
 
-        GameObject newAttacker = Instantiate(attackerPrefabs[currentTableIndex],
+        if (AttackerSpawn == true)
+        {
+            GameObject newAttacker = Instantiate(attackerPrefabs[currentTableIndex],
                                              attackerSpawnLocation[randomSpawner].position,
                                              Quaternion.identity);
+        }
+
     }
 }
