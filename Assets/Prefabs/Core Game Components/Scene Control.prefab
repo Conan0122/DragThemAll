@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1930905738423475181}
   - component: {fileID: 1930905738423475178}
   m_Layer: 0
-  m_Name: Level Manager
+  m_Name: Scene Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec2f3733505f2e4db48432fd79e346d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpAnimControls: {fileID: 0}
+  popUpBackground: {fileID: 0}
+  pausePopUp: {fileID: 0}
+  sceneTransitionDelay: 1

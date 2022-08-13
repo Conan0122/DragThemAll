@@ -506,6 +506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943353976}
     m_Modifications:
+    - target: {fileID: 1946294519, guid: e5490e865e62c744eb69a70114e26d16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3140504122837737561, guid: e5490e865e62c744eb69a70114e26d16, type: 3}
       propertyPath: m_Name
       value: BlackHole_Right
@@ -950,7 +954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930905738423475179, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_Name
-      value: Scene Control
+      value: Level Manager
       objectReference: {fileID: 0}
     - target: {fileID: 1930905738423475181, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_RootOrder
@@ -1025,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 692352187}
+    - target: {fileID: 4557471791723696650, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4557471791723696651, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1179,6 +1187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943353976}
     m_Modifications:
+    - target: {fileID: 1324476180, guid: 1d7b4dec1b2d32f47b566da8bc7ffdbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6369568116143080188, guid: 1d7b4dec1b2d32f47b566da8bc7ffdbb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1297,6 +1309,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6818025886969353354, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1385,6 +1401,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 692352187}
+    - target: {fileID: 6818025887513073069, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6818025887513073070, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_Name
       value: Defender Btn Canvas

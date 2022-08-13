@@ -3931,7 +3931,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930905738423475179, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_Name
-      value: Level Manager
+      value: Scene Control
       objectReference: {fileID: 0}
     - target: {fileID: 1930905738423475181, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_RootOrder

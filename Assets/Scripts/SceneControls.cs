@@ -9,22 +9,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class SceneControls : MonoBehaviour
 {
     #region Variable Initialization
 
-    LevelSelector levelSelector;
+    [Header("Pop Up")]
+    [SerializeField] PopUpAnimControls popUpAnimControls;
+    [SerializeField] GameObject popUpBackground;
+    [SerializeField] GameObject pausePopUp;
 
     int currentSceneIndex;
     bool isPaused = false;
+    [Space(10)]
     [SerializeField] float sceneTransitionDelay = 1f;
 
     #endregion
 
     private void Start()
     {
-        levelSelector = FindObjectOfType<LevelSelector>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (pausePopUp && popUpBackground)
+        {
+            popUpBackground.SetActive(false);
+            pausePopUp.SetActive(false);
+        }
     }
 
     public void Pause()
@@ -32,12 +41,16 @@ public class LevelManager : MonoBehaviour
         if (!isPaused)
         {
             // Pause Game
+            popUpBackground.SetActive(true);
+            pausePopUp.SetActive(true);
+            popUpAnimControls.OpenPopUpAnim();
             Time.timeScale = 0;
             isPaused = true;
         }
         else if (isPaused)
         {
             // Resume Game
+            popUpAnimControls.ClosePopUpAnim();
             Time.timeScale = 1;
             isPaused = false;
         }
@@ -64,6 +77,18 @@ public class LevelManager : MonoBehaviour
     public void LevelLoad(string level)
     {
         StartCoroutine(SceneWaitAndLoadLevel(level));
+    }
+
+    public void HomeButton()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(SceneWaitAndLoadLevel("HomeScene"));
+    }
+
+    public void LevelSelectorButton()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(SceneWaitAndLoadLevel("LevelSelectorScene"));
     }
 
     IEnumerator SceneWaitAndLoad(int scene)
