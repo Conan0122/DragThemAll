@@ -11,6 +11,7 @@ public class Attacker : MonoBehaviour
     #region Variable Initialization
 
     Destroyer destroyer;
+    TaskGiver taskGiver;
     TouchControls touchControls;
     Rigidbody2D myRb;
     Collider2D bodyCollider;
@@ -26,6 +27,9 @@ public class Attacker : MonoBehaviour
     [Tooltip("Extra height for raycast to check ground touch")]
     [SerializeField] float extraRaycastHeight = 0.2f;   // Extending raycast for more accuracy
     [SerializeField] float attackerDamage;
+    // [SerializeField] int attackerID;
+
+    bool isIncremented = false;
 
     #endregion
 
@@ -42,6 +46,7 @@ public class Attacker : MonoBehaviour
 
     void Start()
     {
+        taskGiver = FindObjectOfType<TaskGiver>();
         touchControls = FindObjectOfType<TouchControls>();
         bodyCollider = GetComponent<Collider2D>();
         myRb = GetComponent<Rigidbody2D>();
@@ -115,6 +120,13 @@ public class Attacker : MonoBehaviour
                     this.transform.position = new Vector2(item.transform.position.x, item.transform.position.y);
                     myRb.gravityScale = 0;
                     Destroy(this.gameObject, 1f);   //  Can change hardcoded death duration to serialized field
+
+                    if (!isIncremented)
+                    {
+                        taskGiver.GetAttacker(this.gameObject.name);
+                        isIncremented = true;
+                    }
+
                 }
             }
         }

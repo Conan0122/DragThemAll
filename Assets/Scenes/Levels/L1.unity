@@ -319,6 +319,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7653882697883571635, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
   m_PrefabInstance: {fileID: 7653882697725663140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &295911510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 295911510, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+  m_PrefabInstance: {fileID: 7653882697725663140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &295911512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 295911512, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+  m_PrefabInstance: {fileID: 7653882697725663140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295911510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4417c1a3a43ed9f49803f3a2c52f8cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326679970
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +400,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &399942872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399942873}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399942873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399942872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7653882697725663141}
+  - {fileID: 6818025886462935003}
+  - {fileID: 4557471791952331565}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425964380
 GameObject:
@@ -970,6 +1019,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1930905738423475178, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
+      propertyPath: taskPopUp
+      value: 
+      objectReference: {fileID: 295911510}
+    - target: {fileID: 1930905738423475178, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: pausePopUp
       value: 
       objectReference: {fileID: 633687359}
@@ -978,7 +1031,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 162103831}
     - target: {fileID: 1930905738423475178, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
-      propertyPath: popUpAnimControls
+      propertyPath: taskPopUpAnimControls
+      value: 
+      objectReference: {fileID: 295911512}
+    - target: {fileID: 1930905738423475178, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
+      propertyPath: pausePopUpAnimControls
       value: 
       objectReference: {fileID: 633687360}
     - target: {fileID: 1930905738423475179, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
@@ -987,7 +1044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1930905738423475181, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1930905738423475181, guid: 2e7a7804e50812f478fd0934cea66cc1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1036,13 +1093,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 399942873}
     m_Modifications:
     - target: {fileID: 310473296, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1052639523}
     - target: {fileID: 1140844109, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1052639523}
+    - target: {fileID: 1882725402, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1052639523}
@@ -1068,7 +1129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4557471791723696651, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4557471791723696651, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1148,6 +1209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
+--- !u!224 &4557471791952331565 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4557471791723696651, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
+  m_PrefabInstance: {fileID: 4557471791952331564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5158723182020555856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1328,7 +1394,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 399942873}
     m_Modifications:
     - target: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_Pivot.x
@@ -1340,7 +1406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1424,13 +1490,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
+--- !u!224 &6818025886462935003 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
+  m_PrefabInstance: {fileID: 6818025886462935002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7653882697725663140
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 399942873}
     m_Modifications:
+    - target: {fileID: 246920335, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1052639523}
     - target: {fileID: 7653882696853571163, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1441,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 1052639523}
     - target: {fileID: 7653882697195045864, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_Name
-      value: Pause Canvas
+      value: PopUp Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7653882697195045876, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_Camera
@@ -1457,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7653882697195045877, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7653882697195045877, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1541,6 +1616,11 @@ PrefabInstance:
       objectReference: {fileID: 1052639523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+--- !u!224 &7653882697725663141 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7653882697195045877, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+  m_PrefabInstance: {fileID: 7653882697725663140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8728652976476424184
 PrefabInstance:
   m_ObjectHideFlags: 0

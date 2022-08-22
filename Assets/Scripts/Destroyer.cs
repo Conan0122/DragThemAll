@@ -40,10 +40,10 @@ public class Destroyer : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myTimerAnimator = timerText.GetComponent<Animator>();
 
-        StartCoroutine(DestroyerMechanismm());
+        StartCoroutine(DestroyerTimerMechanismm());
     }
 
-    IEnumerator DestroyerMechanismm()
+    IEnumerator DestroyerTimerMechanismm()
     {
         while (!gameTimer.LevelTimerIsReached)
         {

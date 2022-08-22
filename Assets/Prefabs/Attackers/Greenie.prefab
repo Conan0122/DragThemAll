@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1c087b21bedd14694df4ac584f9111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAllowed: 0
 --- !u!114 &7453854390782342808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +107,7 @@ MonoBehaviour:
   attackerMovementSpeed: 1.5
   extraRaycastHeight: 0.2
   attackerDamage: 15
+  attackerID: 2
 --- !u!95 &1270473658
 Animator:
   serializedVersion: 3

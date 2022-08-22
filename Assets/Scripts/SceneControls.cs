@@ -13,10 +13,14 @@ public class SceneControls : MonoBehaviour
 {
     #region Variable Initialization
 
-    [Header("Pop Up")]
-    [SerializeField] PopUpAnimControls popUpAnimControls;
-    [SerializeField] GameObject popUpBackground;
+    [Header("Pop Ups:-")]
+    [SerializeField] GameObject popUpBackground;    
+    [Header("Pause")]
+    [SerializeField] PopUpAnimControls pausePopUpAnimControls;
     [SerializeField] GameObject pausePopUp;
+    [Header("Task")]
+    [SerializeField] PopUpAnimControls taskPopUpAnimControls;
+    [SerializeField] GameObject taskPopUp;
 
     int currentSceneIndex;
     bool isPaused = false;
@@ -32,7 +36,9 @@ public class SceneControls : MonoBehaviour
         if (pausePopUp && popUpBackground)
         {
             popUpBackground.SetActive(false);
+            // Pop Ups
             pausePopUp.SetActive(false);
+            taskPopUp.SetActive(false);
         }
     }
 
@@ -43,14 +49,34 @@ public class SceneControls : MonoBehaviour
             // Pause Game
             popUpBackground.SetActive(true);
             pausePopUp.SetActive(true);
-            popUpAnimControls.OpenPopUpAnim();
+            pausePopUpAnimControls.OpenPopUpAnim();
             Time.timeScale = 0;
             isPaused = true;
         }
         else if (isPaused)
         {
             // Resume Game
-            popUpAnimControls.ClosePopUpAnim();
+            pausePopUpAnimControls.ClosePopUpAnim();
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+    }
+
+    public void TaskButton()
+    {
+        if (!isPaused)
+        {
+            // Pause Game
+            popUpBackground.SetActive(true);
+            taskPopUp.SetActive(true);
+            taskPopUpAnimControls.OpenPopUpAnim();
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else if (isPaused)
+        {
+            // Resume Game
+            taskPopUpAnimControls.ClosePopUpAnim();
             Time.timeScale = 1;
             isPaused = false;
         }
