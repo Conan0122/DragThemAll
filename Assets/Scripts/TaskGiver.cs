@@ -9,24 +9,33 @@ public class TaskGiver : MonoBehaviour
     #region Variable Initialization
 
     [SerializeField] Quest[] quests;
+    GameTimer gameTimer;
+
+    bool isIncremented = false;
 
     #endregion
 
     private void Awake()
     {
-        QuestMechanism();
+        QuestTextUpdate();
+    }
+
+    private void Start()
+    {
+        gameTimer = FindObjectOfType<GameTimer>();
     }
 
     private void Update()
     {
-        QuestMechanism();
+        QuestTextUpdate();
         if (AllQuestCompleted())
         {
             Debug.Log($"Completed");
+            // Something to do after all quests are completed
         }
     }
 
-    void QuestMechanism()
+    void QuestTextUpdate()
     {
         foreach (var quest in quests)
         {
@@ -35,12 +44,12 @@ public class TaskGiver : MonoBehaviour
         }
     }
 
-    public bool GoalReached(Quest quest)
+    bool GoalReached(Quest quest)
     {
         return (quest.CurrentQuantity >= quest.RequiredQuantity);
     }
 
-    public bool AllQuestCompleted()
+    bool AllQuestCompleted()
     {
         foreach (var quest in quests)
         {
@@ -51,20 +60,32 @@ public class TaskGiver : MonoBehaviour
         }
         return true;
     }
-
-    public void GetAttacker(string currentAttacker)
+    
+    public void IncrementQuest(string currentAttacker, Quest.GoalType goalType)
     {
+
         foreach (var quest in quests)
         {
-            if (quest.Attacker == "All" && !GoalReached(quest))
+            if (goalType == Quest.GoalType.Kill)
             {
-                quest.CurrentQuantity++;
+                if (quest.Attacker == "All" && !GoalReached(quest))
+                {
+                    quest.CurrentQuantity++;
+                }
+                else if (currentAttacker == quest.Attacker + "(Clone)" && !GoalReached(quest))
+                {
+                    quest.CurrentQuantity++;
+                }
             }
-            else if (currentAttacker == quest.Attacker + "(Clone)" && !GoalReached(quest))
+            else if (goalType == Quest.GoalType.Survive && currentAttacker == null)
             {
-                quest.CurrentQuantity++;
+                if (!isIncremented)
+                {
+                    quest.CurrentQuantity++;
+                    isIncremented = true;
+                }
+
             }
-            
         }
     }
 

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
   m_sharedMaterial: {fileID: -312767091666726780, guid: ca44b40bfebba974795694bbbd4f8344, type: 2}
@@ -1224,25 +1224,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - goalPanel: {fileID: 6110410766112700778}
-    description: Destroy
+    description: Survive till the end
     descriptionText: {fileID: 1205382882}
-    attacker: Argon
-    requiredQuantity: 10
+    attacker: 
+    requiredQuantity: 1
     quantityText: {fileID: 1769027851}
+    typeOFGoal: 1
     currentQuantity: 0
   - goalPanel: {fileID: 1956312421}
-    description: Collect
+    description: Kill Argon 2 times
     descriptionText: {fileID: 230358166}
-    attacker: Greenie
-    requiredQuantity: 10
+    attacker: Argon
+    requiredQuantity: 2
     quantityText: {fileID: 1249243485}
+    typeOFGoal: 0
     currentQuantity: 0
   - goalPanel: {fileID: 1284783415}
-    description: Attack all
+    description: Kill Greenie
     descriptionText: {fileID: 1699315769}
-    attacker: All
-    requiredQuantity: 20
+    attacker: Greenie
+    requiredQuantity: 5
     quantityText: {fileID: 494452614}
+    typeOFGoal: 0
     currentQuantity: 0
 --- !u!1 &6110410766112700778
 GameObject:

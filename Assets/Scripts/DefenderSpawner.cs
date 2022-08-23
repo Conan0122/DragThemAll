@@ -66,7 +66,7 @@ public class DefenderSpawner : MonoBehaviour
 
     void SpawnDefender()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && defender != null)
         {
             touch = Input.GetTouch(0);
             touchPos = mainCamera.ScreenToWorldPoint(touch.position);

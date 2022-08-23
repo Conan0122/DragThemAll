@@ -12,6 +12,7 @@ public class GameTimer : MonoBehaviour
     #region Variable Initialization
 
     AttackerSpawner attackerSpawner;
+    TaskGiver taskGiver;
     [SerializeField] TextMeshProUGUI levelTimerText;
     [SerializeField] TextMeshProUGUI initialTimerText;
     TimeSpan time;
@@ -34,6 +35,7 @@ public class GameTimer : MonoBehaviour
     void Start()
     {
         attackerSpawner = FindObjectOfType<AttackerSpawner>();
+        taskGiver = FindObjectOfType<TaskGiver>();
 
         // Show level Time in timer icom at start
         time = TimeSpan.FromSeconds(levelTime);
@@ -78,6 +80,7 @@ public class GameTimer : MonoBehaviour
         }
         else
         {
+            taskGiver.IncrementQuest(null, Quest.GoalType.Survive);
             LevelTimerIsReached = true;
             attackerSpawner.AttackerSpawn = false;
         }

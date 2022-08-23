@@ -27,7 +27,6 @@ public class Attacker : MonoBehaviour
     [Tooltip("Extra height for raycast to check ground touch")]
     [SerializeField] float extraRaycastHeight = 0.2f;   // Extending raycast for more accuracy
     [SerializeField] float attackerDamage;
-    // [SerializeField] int attackerID;
 
     bool isIncremented = false;
 
@@ -123,7 +122,7 @@ public class Attacker : MonoBehaviour
 
                     if (!isIncremented)
                     {
-                        taskGiver.GetAttacker(this.gameObject.name);
+                        taskGiver.IncrementQuest(this.gameObject.name, Quest.GoalType.Kill);
                         isIncremented = true;
                     }
 

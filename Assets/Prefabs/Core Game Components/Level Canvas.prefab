@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimerText: {fileID: 338963828}
   initialTimerText: {fileID: 791889153}
-  levelTime: 80
+  levelTime: 30
   initialTime: 5
 --- !u!1 &791889151
 GameObject:
