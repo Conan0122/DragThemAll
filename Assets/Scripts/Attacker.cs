@@ -125,7 +125,6 @@ public class Attacker : MonoBehaviour
                         taskGiver.IncrementQuest(this.gameObject.name, Quest.GoalType.Kill);
                         isIncremented = true;
                     }
-
                 }
             }
         }

@@ -13,6 +13,8 @@ public class DamageCollider : MonoBehaviour
 
     Player player;
     float attackerDamage;
+    // [SerializeField] Camera gameCamera;
+    [SerializeField] Animator shakeAnimator;
 
     #endregion
 
@@ -29,9 +31,17 @@ public class DamageCollider : MonoBehaviour
         {
             attackerDamage = collider.gameObject.GetComponent<Attacker>().AttackerDamage;
             player.DecreaseHealth(attackerDamage);
-            
         }
+
+        if (true) ScreenShakeOnDamage();    // We can check here if Screen shake is off / on
         Destroy(collider.gameObject, 0.4f);
     }
-    
+
+    void ScreenShakeOnDamage()
+    {
+        int rand = Random.Range(1, 5);
+        shakeAnimator.SetTrigger($"Shake{rand}");
+        Debug.Log($"Shake{rand}");
+    }
+
 }

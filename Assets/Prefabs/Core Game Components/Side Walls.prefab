@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b695ea9da4a7644b7e121badd4d94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeAnimator: {fileID: 0}
 --- !u!1 &7003345436634357645
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,3 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b695ea9da4a7644b7e121badd4d94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeAnimator: {fileID: 0}

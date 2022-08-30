@@ -1,7 +1,7 @@
-//  Handling Level/ Scene Mechanisms
-//  Managing Scene Loading like
-//  Pause, Restart,
-//  Play, Shop, Watch Ads, Settings, Share
+//          Handling Level/ Scene Mechanisms
+//          Managing Scene Loading like
+//          Pause, Restart,
+//          Play, Shop, Watch Ads, Settings, Share
 
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ public class SceneControls : MonoBehaviour
         }
     }
 
-    public void Pause()
+    public void PauseAndCancel()
     {
         if (!isPaused)
         {

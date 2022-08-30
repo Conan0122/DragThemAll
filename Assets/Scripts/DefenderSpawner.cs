@@ -21,13 +21,15 @@ public class DefenderSpawner : MonoBehaviour
 
     [SerializeField] Color32 spawnerOnEnableColor;
     [SerializeField] Color32 spawnerOnDisableColor;
+    GameObject defenderParent;
+    const string DEFENDER_PARENT = "Defender Parent";
 
     #endregion
 
     #region Getters and Setters
     public Color32 SpawnerOnEnableColor
     {
-        get { return spawnerOnEnableColor; }    // read
+        get { return spawnerOnEnableColor; }
         set
         {
             spawnerOnEnableColor = value;
@@ -36,7 +38,7 @@ public class DefenderSpawner : MonoBehaviour
 
     public Color32 SpawnerOnDisableColor
     {
-        get { return spawnerOnDisableColor; }   // read
+        get { return spawnerOnDisableColor; }
         set
         {
             spawnerOnDisableColor = value;
@@ -52,6 +54,14 @@ public class DefenderSpawner : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = new Color32(0, 0, 0, 0);
         mainCamera = Camera.main;
+        
+        CreateDefenderParent();
+    }
+
+    void CreateDefenderParent()
+    {
+        defenderParent = GameObject.Find(DEFENDER_PARENT);
+        if (!defenderParent) defenderParent = new GameObject(DEFENDER_PARENT);
     }
 
     public void SetSelectedDefender(Defender defenderToSelect)
@@ -106,6 +116,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         Defender newDefender = Instantiate(defender, spawnPosition, Quaternion.identity);
         defender.DecrementDefenderQuantity();
+        newDefender.transform.parent = defenderParent.transform;
     }
 
 

@@ -9,7 +9,6 @@ public class TaskGiver : MonoBehaviour
     #region Variable Initialization
 
     [SerializeField] Quest[] quests;
-    GameTimer gameTimer;
 
     bool isIncremented = false;
 
@@ -18,11 +17,6 @@ public class TaskGiver : MonoBehaviour
     private void Awake()
     {
         QuestTextUpdate();
-    }
-
-    private void Start()
-    {
-        gameTimer = FindObjectOfType<GameTimer>();
     }
 
     private void Update()
@@ -39,8 +33,21 @@ public class TaskGiver : MonoBehaviour
     {
         foreach (var quest in quests)
         {
-            quest.descriptionText.text = quest.Description;
-            quest.quantityText.text = quest.CurrentQuantity + "/" + quest.RequiredQuantity;
+            if (quest.TypeOFGoal == Quest.GoalType.Kill && quest.Attacker == "All")
+            {
+                quest.DescriptionText.text = "Destroy any Attacker " + quest.RequiredQuantity + " times.";
+            }
+            else if (quest.TypeOFGoal == Quest.GoalType.Kill)
+            {
+                quest.DescriptionText.text = "Destroy " + quest.Attacker + " " + quest.RequiredQuantity + " times.";
+            }
+            else if (quest.TypeOFGoal == Quest.GoalType.Survive)
+            {
+                //  Make sure RequiredQuantity is always 1 in case of Survive Quest
+                quest.RequiredQuantity = 1;
+                quest.DescriptionText.text = "Survive till the end.";
+            }
+            quest.QuantityText.text = quest.CurrentQuantity + "/" + quest.RequiredQuantity;
         }
     }
 
@@ -60,10 +67,9 @@ public class TaskGiver : MonoBehaviour
         }
         return true;
     }
-    
+
     public void IncrementQuest(string currentAttacker, Quest.GoalType goalType)
     {
-
         foreach (var quest in quests)
         {
             if (goalType == Quest.GoalType.Kill)
@@ -84,7 +90,12 @@ public class TaskGiver : MonoBehaviour
                     quest.CurrentQuantity++;
                     isIncremented = true;
                 }
+            }
 
+            if (GoalReached(quest))
+            {
+                quest.CheckBox.gameObject.SetActive(true);
+                quest.QuantityText.enabled = false;
             }
         }
     }

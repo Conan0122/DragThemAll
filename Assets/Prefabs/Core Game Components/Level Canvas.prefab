@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimerText: {fileID: 338963828}
   initialTimerText: {fileID: 791889153}
-  levelTime: 30
+  levelTime: 15
   initialTime: 5
 --- !u!1 &791889151
 GameObject:
@@ -615,8 +615,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: Pause
+        m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
+        m_MethodName: PauseAndCancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

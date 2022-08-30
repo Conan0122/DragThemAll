@@ -24,6 +24,8 @@ public class AttackerSpawner : MonoBehaviour
     int randomSpawner;
     float randomSpawnDelay;
     bool attackerSpawn = false;
+    GameObject attackerParent;
+    const string ATTACKER_PARENT = "Attacker Parent";
 
     #endregion
 
@@ -41,6 +43,7 @@ public class AttackerSpawner : MonoBehaviour
         gameTimer = FindObjectOfType<GameTimer>();
 
         StartCoroutine(CalculateSpawn());
+        CreateAttackerParent();
     }
 
     IEnumerator CalculateSpawn()
@@ -50,7 +53,7 @@ public class AttackerSpawner : MonoBehaviour
         {
             totalOfWeights += item;
         }
-        
+
         while (!gameTimer.LevelTimerIsReached)
         {
             // Random Weighted based Spawning Algorithm
@@ -75,6 +78,12 @@ public class AttackerSpawner : MonoBehaviour
         }
     }
 
+    void CreateAttackerParent()
+    {
+        attackerParent = GameObject.Find(ATTACKER_PARENT);
+        if (!attackerParent) attackerParent = new GameObject(ATTACKER_PARENT);
+    }
+
     void SpawnAttackers(int currentTableIndex)
     {
         randomSpawner = Random.Range(0, attackerSpawnLocation.Length);
@@ -84,6 +93,8 @@ public class AttackerSpawner : MonoBehaviour
             GameObject newAttacker = Instantiate(attackerPrefabs[currentTableIndex],
                                              attackerSpawnLocation[randomSpawner].position,
                                              Quaternion.identity);
+
+            newAttacker.transform.parent = attackerParent.transform;
         }
 
     }
