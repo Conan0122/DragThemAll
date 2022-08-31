@@ -11,17 +11,40 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     #region Variable Initialization
-        [SerializeField] GameObject LevelCompletePopUp;
-        [SerializeField] GameObject GameOverPopUp;
+
+    TaskGiver taskGiver;
+    Player playerHealth;
+    SceneControls sceneControls;
+
     #endregion
 
     void Start()
     {
-        
+        taskGiver = FindObjectOfType<TaskGiver>();
+        playerHealth = FindObjectOfType<Player>();
+        sceneControls = FindObjectOfType<SceneControls>();
     }
 
-    void Update()
+    private void Update()
     {
-        
+        OpenLevelCompletePopUp();
+        OpenGameOverPopUp();
     }
+
+    void OpenLevelCompletePopUp()
+    {
+        if (taskGiver.AllQuestCompleted() && playerHealth.CurrentHealth >= 0)
+        {
+            sceneControls.LevelCompletePopUp();
+        }
+    }
+
+    void OpenGameOverPopUp()
+    {
+        if ((!taskGiver.AllQuestCompleted() && playerHealth.CurrentHealth <= 0) || playerHealth.CurrentHealth <= 0)
+        {
+            sceneControls.GameOverPopUp();
+        }
+    }
+
 }

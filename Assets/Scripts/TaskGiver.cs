@@ -56,7 +56,7 @@ public class TaskGiver : MonoBehaviour
         return (quest.CurrentQuantity >= quest.RequiredQuantity);
     }
 
-    bool AllQuestCompleted()
+    public bool AllQuestCompleted()
     {
         foreach (var quest in quests)
         {

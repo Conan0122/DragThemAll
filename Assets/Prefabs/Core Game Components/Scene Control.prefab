@@ -48,4 +48,8 @@ MonoBehaviour:
   pausePopUp: {fileID: 0}
   taskPopUpAnimControls: {fileID: 0}
   taskPopUp: {fileID: 0}
+  gameOverPopUpAnimControls: {fileID: 0}
+  gameOverPopUp: {fileID: 0}
+  levelCompletePopUpAnimControls: {fileID: 0}
+  levelCompletePopUp: {fileID: 0}
   sceneTransitionDelay: 1

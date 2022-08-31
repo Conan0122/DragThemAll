@@ -12,7 +12,7 @@ public class PopUpAnimControls : MonoBehaviour
 
     [SerializeField] CanvasGroup popUpBG;
     [SerializeField] GameObject popUp;
-    [SerializeField] RectTransform rectTransform;
+    [SerializeField] RectTransform popUpRectTransform;
     Vector2 initialPopupScale;
 
     [Header("DOTween Settings")]
@@ -23,11 +23,11 @@ public class PopUpAnimControls : MonoBehaviour
 
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         popUpBG.alpha = 0f;
-        initialPopupScale = rectTransform.localScale;
-        rectTransform.localScale = new Vector2(0f, 0f);
+        initialPopupScale = popUpRectTransform.localScale;
+        popUpRectTransform.localScale = new Vector2(0f, 0f);
     }
 
     public void OpenPopUpAnim()
@@ -35,8 +35,8 @@ public class PopUpAnimControls : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.Append(popUpBG.DOFade(1f, fadeTime))
-            .Join(rectTransform.DOScale(initialPopupScale, animDuration))
-            .Append(rectTransform.DOShakeScale(animDuration, animStrength, 10, 0f))
+            .Join(popUpRectTransform.DOScale(initialPopupScale, animDuration))
+            .Append(popUpRectTransform.DOShakeScale(animDuration, animStrength, 10, 0f))
             .SetUpdate(true);
     }
 
@@ -45,7 +45,7 @@ public class PopUpAnimControls : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.Append(popUpBG.DOFade(0, fadeTime))
-            .Join(rectTransform.DOScale(new Vector2(0f, 0f), 0.1f))
+            .Join(popUpRectTransform.DOScale(new Vector2(0f, 0f), 0.1f))
             .SetUpdate(true)
             .OnComplete(SetPopUp);
     }

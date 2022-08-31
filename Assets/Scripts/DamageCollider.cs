@@ -41,7 +41,6 @@ public class DamageCollider : MonoBehaviour
     {
         int rand = Random.Range(1, 5);
         shakeAnimator.SetTrigger($"Shake{rand}");
-        Debug.Log($"Shake{rand}");
     }
 
 }

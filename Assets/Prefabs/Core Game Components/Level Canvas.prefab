@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimerText: {fileID: 338963828}
   initialTimerText: {fileID: 791889153}
-  levelTime: 15
+  levelTime: 60
   initialTime: 5
 --- !u!1 &791889151
 GameObject:
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 4369832253267847375, guid: 724f94a834e0e684a8475830bbefa03b, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 4369832253267847375, guid: 724f94a834e0e684a8475830bbefa03b, type: 3}
     m_DisabledSprite: {fileID: -3142314957342334565, guid: b299a88b3a3d6654f923826f86351538, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
