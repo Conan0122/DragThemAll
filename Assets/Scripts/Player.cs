@@ -1,6 +1,7 @@
-//          Handling Player Details
-//          Health
-//          Coins
+/*      Handling Player Details
+        Health
+        Coins
+*/
 
 using System.Collections;
 using System.Collections.Generic;

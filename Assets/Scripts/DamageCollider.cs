@@ -1,7 +1,8 @@
-// Handling walls' damage
-// Destroy attacer on collide
-// Perform certain task that we want to do while attacker collides
-// Like- Descreasing player's health and increaing coins
+/*      Handling walls' damage
+        Destroy attacer on collide
+        Perform certain task that we want to do while attacker collides
+        Like- Descreasing player's health and increaing coins
+*/
 
 using System.Collections;
 using System.Collections.Generic;

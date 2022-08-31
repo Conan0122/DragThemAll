@@ -1,5 +1,6 @@
-// Handling Touch Controls for Attackers
-// Drag and Drop
+/*      Handling Touch Controls for Attackers
+        Drag and Drop
+*/
 
 using System.Collections;
 using System.Collections.Generic;

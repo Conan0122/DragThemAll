@@ -1,5 +1,6 @@
-// Handling functionality of attacker spawners
-// Probability based spawning
+/*      Handling functionality of attacker spawners
+        Probability based spawning
+*/
 
 using System.Collections;
 using UnityEngine;

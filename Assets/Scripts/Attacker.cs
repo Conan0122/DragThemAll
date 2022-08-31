@@ -1,6 +1,7 @@
-// Handling Attacker Details
-// Attacker Destroyer
-// Attacker Health
+/*      Handling Attacker Details
+        Attacker Destroyer
+        Attacker Health
+*/
 
 using System.Collections;
 using System.Collections.Generic;

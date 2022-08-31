@@ -1,5 +1,6 @@
-//  Handling Defender Spawner Area
-//  Handling Defender Spawner aftereffects and mechanism
+/*      Handling Defender Spawner Area
+        Handling Defender Spawner aftereffects and mechanism
+*/
 
 using System.Collections;
 using System.Collections.Generic;

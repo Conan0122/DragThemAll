@@ -1,6 +1,7 @@
-//  Handling defender
-//  Duration of spawn
-//  Number of defender we can spawn
+/*      Handling defender
+        Duration of spawn
+        Number of defender we can spawn
+*/
 
 using System.Collections;
 using System.Collections.Generic;

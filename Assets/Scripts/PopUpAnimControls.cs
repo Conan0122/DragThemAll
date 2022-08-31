@@ -1,4 +1,6 @@
-//  Handling Pop up Animations
+/*      Handling Pop up Animations Controls,
+        like fade, scaling, shake
+*/
 
 using System.Collections;
 using System.Collections.Generic;

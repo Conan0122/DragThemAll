@@ -1,4 +1,4 @@
-//  To be added in a character that has shooting ability
+//      To be added in a character that has shooting ability
 
 using System.Collections;
 using System.Collections.Generic;

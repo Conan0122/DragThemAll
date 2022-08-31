@@ -1,5 +1,6 @@
-// For handling Health bar
-// For handling defender bar
+/*      For handling Health bar
+        For handling defender bar
+*/
 
 using UnityEngine;
 using UnityEngine.UI;

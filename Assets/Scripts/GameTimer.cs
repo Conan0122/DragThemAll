@@ -1,4 +1,4 @@
-//  Handling Game timer
+//      Handling Game timer
 
 using System;
 using System.Collections;

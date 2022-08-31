@@ -1,4 +1,4 @@
-//  Handling destroyer mechanism
+//      Handling destroyer mechanism
 
 using System.Collections;
 using UnityEngine;
