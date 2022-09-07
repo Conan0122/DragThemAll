@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class LevelController : MonoBehaviour
     TaskGiver taskGiver;
     Player playerHealth;
     SceneControls sceneControls;
+    bool isIncremented = false;
+
+    public bool IsIncremented
+    {
+        get { return isIncremented; }
+        set { isIncremented = value; }
+    }
 
     #endregion
 
@@ -37,6 +45,21 @@ public class LevelController : MonoBehaviour
         if (taskGiver.AllQuestCompleted() && playerHealth.CurrentHealth >= 0)
         {
             sceneControls.LevelCompletePopUp();
+
+            if (!isIncremented)
+            {
+                Debug.Log($"Active Level after incr : " + DataPersistenceManager.instance.ActiveLevel);
+                Debug.Log($"Max Level : " + DataPersistenceManager.instance.gameData.MaxlevelReached);
+
+                if (DataPersistenceManager.instance.ActiveLevel == DataPersistenceManager.instance.gameData.MaxlevelReached)
+                {
+                    DataPersistenceManager.instance.ActiveLevel++;
+                    DataPersistenceManager.instance.gameData.MaxlevelReached++;
+                    DataPersistenceManager.instance.WriteFile();
+                }
+
+                isIncremented = true;
+            }
         }
     }
 

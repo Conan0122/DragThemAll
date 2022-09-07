@@ -7,7 +7,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneControls : MonoBehaviour
@@ -146,7 +145,8 @@ public class SceneControls : MonoBehaviour
 
     public void LevelLoad(string level)
     {
-        StartCoroutine(SceneWaitAndLoadLevel(level));
+        StartCoroutine(SceneWaitAndLoadLevel("L" + level));
+        DataPersistenceManager.instance.ReturnActiveLevel(level);
     }
 
     public void HomeButton()
