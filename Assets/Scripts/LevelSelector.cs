@@ -13,6 +13,7 @@ public class LevelSelector : MonoBehaviour
     LevelSelector[] levelSelectors;
 
     [SerializeField] int level;
+    [SerializeField] Image lockImage;
 
     #endregion
 
@@ -55,15 +56,21 @@ public class LevelSelector : MonoBehaviour
     {
         foreach (var levelSelector in levelSelectors)
         {
-            DataPersistenceManager.instance.ReadFile();
+            DataPersistenceManager.instance.LoadFile();
 
             if (levelSelector.Level <= DataPersistenceManager.instance.gameData.MaxlevelReached)
             {
+                //  Unlocked levels
                 levelSelector.GetComponent<Button>().interactable = true;
+                levelSelector.lockImage.enabled = false;
+                levelSelector.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             }
             else if (levelSelector.Level > DataPersistenceManager.instance.gameData.MaxlevelReached)
             {
+                //  Locked levels
                 levelSelector.GetComponent<Button>().interactable = false;
+                levelSelector.lockImage.enabled = true;
+                levelSelector.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
             }
         }
     }

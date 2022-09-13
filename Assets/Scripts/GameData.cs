@@ -9,8 +9,8 @@ public class GameData
 {
     #region Variable Initialization
 
-    [SerializeField] int maxLevelReached = 1;
-    // [SerializeField] int coins = 100;
+    [SerializeField] int maxLevelReached;
+    [SerializeField] int currentCoins;
 
     #endregion
 
@@ -18,6 +18,12 @@ public class GameData
     {
         get { return maxLevelReached; }
         set { maxLevelReached = value; }
+    }
+
+    public int CurrentCoins
+    {
+        get { return currentCoins; }
+        set { currentCoins = value; }
     }
 
 

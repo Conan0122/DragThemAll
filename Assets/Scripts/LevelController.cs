@@ -17,6 +17,7 @@ public class LevelController : MonoBehaviour
     TaskGiver taskGiver;
     Player playerHealth;
     SceneControls sceneControls;
+
     bool isIncremented = false;
 
     public bool IsIncremented
@@ -46,6 +47,13 @@ public class LevelController : MonoBehaviour
         {
             sceneControls.LevelCompletePopUp();
 
+            // Destroy all the leftover attackers in scene
+            var attackersLeftInScene = GameObject.Find("Attacker Parent");
+            if (attackersLeftInScene)
+            {
+                Destroy(attackersLeftInScene);
+            }
+
             if (!isIncremented)
             {
                 Debug.Log($"Active Level after incr : " + DataPersistenceManager.instance.ActiveLevel);
@@ -55,7 +63,7 @@ public class LevelController : MonoBehaviour
                 {
                     DataPersistenceManager.instance.ActiveLevel++;
                     DataPersistenceManager.instance.gameData.MaxlevelReached++;
-                    DataPersistenceManager.instance.WriteFile();
+                    DataPersistenceManager.instance.SaveFile();
                 }
 
                 isIncremented = true;
@@ -68,6 +76,13 @@ public class LevelController : MonoBehaviour
         if ((!taskGiver.AllQuestCompleted() && playerHealth.CurrentHealth <= 0) || playerHealth.CurrentHealth <= 0)
         {
             sceneControls.GameOverPopUp();
+
+            // Destroy all the leftover attackers in scene
+            var attackersLeftInScene = GameObject.Find("Attacker Parent");
+            if (attackersLeftInScene)
+            {
+                Destroy(attackersLeftInScene);
+            }
         }
     }
 

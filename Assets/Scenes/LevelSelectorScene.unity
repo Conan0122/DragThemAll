@@ -493,9 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 3
+  lockImage: {fileID: 1962392773}
 --- !u!1 &154129667
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,9 +991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 8
+  lockImage: {fileID: 0}
 --- !u!1 &382529835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &470408681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1111,7 +1109,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470408680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1503,7 +1501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &581791493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1530,7 +1528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581791492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1708,9 +1706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 4
+  lockImage: {fileID: 470408682}
 --- !u!1 &703150920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &719818519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1889,7 +1886,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719818518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2231,9 +2228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 7
+  lockImage: {fileID: 0}
 --- !u!1 &869804521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,9 +2376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 9
+  lockImage: {fileID: 0}
 --- !u!1 &939524932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,9 +2524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 0
+  lockImage: {fileID: 0}
 --- !u!1001 &952786051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2583,6 +2577,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6630560211337113118, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
+      propertyPath: encryptEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6630560211337113119, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
       propertyPath: m_Name
       value: Data Persistence Manager
@@ -2606,7 +2604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1006192526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2633,7 +2631,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006192525}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3361,9 +3359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 2
+  lockImage: {fileID: 581791494}
 --- !u!1001 &1483905292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,9 +3704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 5
+  lockImage: {fileID: 1871803184}
 --- !u!1 &1595716576
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,9 +3934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 0
+  lockImage: {fileID: 0}
 --- !u!1 &1604311078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,9 +4149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 1
-  activeLevel: 1
   level: 1
+  lockImage: {fileID: 719818520}
 --- !u!1 &1666688162
 GameObject:
   m_ObjectHideFlags: 0
@@ -4304,9 +4298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 6
+  lockImage: {fileID: 1006192527}
 --- !u!1001 &1709331596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4515,7 +4508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1871803183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4542,7 +4535,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871803182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4719,9 +4712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497098a3c27405c47879a389d78f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUnlocked: 0
-  activeLevel: 0
   level: 0
+  lockImage: {fileID: 0}
 --- !u!1 &1954194575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4873,7 +4865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1962392772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4900,7 +4892,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962392771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
