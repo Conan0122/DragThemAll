@@ -1531,6 +1531,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 399942873}
     m_Modifications:
+    - target: {fileID: 239606992, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1052639523}
+    - target: {fileID: 239606992, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevelButton
+      objectReference: {fileID: 0}
     - target: {fileID: 246920335, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

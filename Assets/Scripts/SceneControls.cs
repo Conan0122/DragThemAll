@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneControls : MonoBehaviour
@@ -27,12 +28,14 @@ public class SceneControls : MonoBehaviour
     [Header("LevelComplete")]
     [SerializeField] PopUpAnimControls levelCompletePopUpAnimControls;
     [SerializeField] GameObject levelCompletePopUp;
+    [Header("SceneTransitions")]
+    [SerializeField] Animator sceneTransitionAnim;
+    [SerializeField] float sceneTransitionDelay = 1f;
 
     int currentSceneIndex;
     bool isPaused = false;
     bool isPopUpDisplayed = false;
-    [Space(10)]
-    [SerializeField] float sceneTransitionDelay = 1f;
+    
 
     #endregion
 
@@ -127,7 +130,8 @@ public class SceneControls : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(currentSceneIndex);
+        sceneTransitionAnim.SetTrigger("Start");
+        StartCoroutine(SceneWaitAndLoad(currentSceneIndex));
         Time.timeScale = 1;
     }
 
@@ -141,6 +145,18 @@ public class SceneControls : MonoBehaviour
     public void BackButton()
     {
         StartCoroutine(SceneWaitAndLoad(currentSceneIndex - 1));
+    }
+
+    public void NextLevelButton()
+    {
+        /*          Make one scene, named "End of Levels".
+                        Keep it in last build index after level scene,
+                        And we cant go to next scene after scene.
+                            We will inform players that they've complete all the levels,
+                            either they restart game again from level 1 or they can wait for new updates.
+        */
+        StartCoroutine(SceneWaitAndLoad(currentSceneIndex + 1));
+        Time.timeScale = 1;
     }
 
     public void LevelLoad(string level)
@@ -163,12 +179,16 @@ public class SceneControls : MonoBehaviour
 
     IEnumerator SceneWaitAndLoad(int scene)
     {
+        // For scenes based on index
+        sceneTransitionAnim.SetTrigger("Start");
         yield return new WaitForSeconds(sceneTransitionDelay);
         SceneManager.LoadScene(scene);
     }
 
     IEnumerator SceneWaitAndLoadLevel(string scene)
     {
+        // For levels
+        sceneTransitionAnim.SetTrigger("Start");
         yield return new WaitForSeconds(sceneTransitionDelay);
         SceneManager.LoadScene(scene);
     }
