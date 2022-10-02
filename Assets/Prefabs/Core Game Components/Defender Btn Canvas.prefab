@@ -1321,7 +1321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfb6e4fc4e9f949b88e6780bb350f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 3328586669928122581, guid: fd327f05a771ffe48be5663636c67814, type: 3}
+  defName: 2
+  defenderPrefab: {fileID: 3328586669928122580, guid: fd327f05a771ffe48be5663636c67814, type: 3}
+  numberOfDefender: 10
 --- !u!1 &5527399748341251330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfb6e4fc4e9f949b88e6780bb350f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 8839699821068961840, guid: b6403f6714d0b3c468d18c954b7ee3c1, type: 3}
+  defName: 3
+  defenderPrefab: {fileID: 8839699821068961850, guid: b6403f6714d0b3c468d18c954b7ee3c1, type: 3}
+  numberOfDefender: 10
 --- !u!1 &5839848684472897529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,7 +1561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfb6e4fc4e9f949b88e6780bb350f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 6158633693374732169, guid: f3db11cf921bcfe44a996087b37501b5, type: 3}
+  defName: 1
+  defenderPrefab: {fileID: 6158633693374732173, guid: f3db11cf921bcfe44a996087b37501b5, type: 3}
+  numberOfDefender: 10
 --- !u!1 &6818025886969353365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,7 +1837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfb6e4fc4e9f949b88e6780bb350f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 4444712700207853871, guid: 4dbaf26145459004eb62325464b9560f, type: 3}
+  defName: 0
+  defenderPrefab: {fileID: 4444712700207853859, guid: 4dbaf26145459004eb62325464b9560f, type: 3}
+  numberOfDefender: 2
 --- !u!1 &6818025887513073070
 GameObject:
   m_ObjectHideFlags: 0

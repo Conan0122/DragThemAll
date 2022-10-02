@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4444712700207853856}
   - component: {fileID: 4444712700207853870}
   m_Layer: 10
-  m_Name: Brick wall
+  m_Name: Level 1 Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   defenderLifetimeDuration: 4
   attackerDeathDuration: 0.8
   timeBeforeDefenderAttacks: 3
-  numberOfDefender: 5
+  numberOfDefender: 10
 --- !u!50 &4444712700207853856
 Rigidbody2D:
   serializedVersion: 4

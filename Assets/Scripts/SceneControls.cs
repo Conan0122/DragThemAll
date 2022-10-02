@@ -28,6 +28,10 @@ public class SceneControls : MonoBehaviour
     [Header("LevelComplete")]
     [SerializeField] PopUpAnimControls levelCompletePopUpAnimControls;
     [SerializeField] GameObject levelCompletePopUp;
+    [Header("GameProgress")]
+    [SerializeField] PopUpAnimControls gameProgressPopUpAnimControls;
+    [SerializeField] GameObject gameProgressPopUp;
+
     [Header("SceneTransitions")]
     [SerializeField] Animator sceneTransitionAnim;
     [SerializeField] float sceneTransitionDelay = 1f;
@@ -35,7 +39,6 @@ public class SceneControls : MonoBehaviour
     int currentSceneIndex;
     bool isPaused = false;
     bool isPopUpDisplayed = false;
-    
 
     #endregion
 
@@ -51,6 +54,7 @@ public class SceneControls : MonoBehaviour
             if (pausePopUp) pausePopUp.SetActive(false);
             if (taskPopUp) taskPopUp.SetActive(false);
             if (gameOverPopUp) gameOverPopUp.SetActive(false);
+            if (gameProgressPopUp) gameProgressPopUp.SetActive(false);
         }
     }
 
@@ -59,9 +63,11 @@ public class SceneControls : MonoBehaviour
     //              Task
     //              GameOver
     //              Level Complete
+    //              Game Progress
 
     public void PauseAndCancel()
     {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
         if (!isPaused)
         {
             //      Pause Game
@@ -82,6 +88,7 @@ public class SceneControls : MonoBehaviour
 
     public void TaskButton()
     {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
         if (!isPaused)
         {
             //      Pause Game
@@ -122,16 +129,38 @@ public class SceneControls : MonoBehaviour
             //      Destroy all the attacker remaining in scene
             popUpBackground.SetActive(true);
             levelCompletePopUp.SetActive(true);
+            AudioManager.instance.PlayAudio(Sounds.AudioName.LevelComplete, false);
             levelCompletePopUpAnimControls.OpenPopUpAnim();
             Time.timeScale = 0;
             isPopUpDisplayed = true;
         }
     }
 
+    public void GameProgresssPopUp()
+    {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        popUpBackground.SetActive(true);
+        gameProgressPopUp.SetActive(true);
+        gameProgressPopUpAnimControls.OpenPopUpAnim();
+    }
+
+    public void ResetProgress()
+    {
+        DataPersistenceManager.instance.NewGameData();
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        gameProgressPopUpAnimControls.ClosePopUpAnim();
+    }
+
+    public void CancelResetProgress()
+    {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        gameProgressPopUpAnimControls.ClosePopUpAnim();
+    }
+
     public void Restart()
     {
         sceneTransitionAnim.SetTrigger("Start");
-        StartCoroutine(SceneWaitAndLoad(currentSceneIndex));
+        StartCoroutine(WaitAndLoadScene_Int(currentSceneIndex, Sounds.AudioName.NormalButtonClicks));
         Time.timeScale = 1;
     }
 
@@ -139,12 +168,13 @@ public class SceneControls : MonoBehaviour
     {
         // Move to Level selector scene
         // Change this to specific scene later
-        StartCoroutine(SceneWaitAndLoad(currentSceneIndex + 1));
+        StartCoroutine(WaitAndLoadScene_Int(currentSceneIndex + 1, Sounds.AudioName.BigButtonClicks));
     }
 
-    public void BackButton()
+    public void GoToScene(string sceneName)
     {
-        StartCoroutine(SceneWaitAndLoad(currentSceneIndex - 1));
+        StartCoroutine(WaitAndLoadScene_String(sceneName, Sounds.AudioName.NormalButtonClicks));
+        Time.timeScale = 1;
     }
 
     public void NextLevelButton()
@@ -155,42 +185,51 @@ public class SceneControls : MonoBehaviour
                             We will inform players that they've complete all the levels,
                             either they restart game again from level 1 or they can wait for new updates.
         */
-        StartCoroutine(SceneWaitAndLoad(currentSceneIndex + 1));
+        StartCoroutine(WaitAndLoadScene_Int(currentSceneIndex + 1, Sounds.AudioName.NormalButtonClicks));
         Time.timeScale = 1;
     }
 
     public void LevelLoad(string level)
     {
-        StartCoroutine(SceneWaitAndLoadLevel("L" + level));
+        StartCoroutine(WaitAndLoadScene_String("L" + level, Sounds.AudioName.NormalButtonClicks));
         DataPersistenceManager.instance.ReturnActiveLevel(level);
     }
 
-    public void HomeButton()
+    public void BackHomeButton()
     {
+        StartCoroutine(WaitAndLoadScene_String("HomeScene", Sounds.AudioName.NormalButtonClicks));
         Time.timeScale = 1;
-        StartCoroutine(SceneWaitAndLoadLevel("HomeScene"));
     }
 
     public void LevelSelectorButton()
     {
         Time.timeScale = 1;
-        StartCoroutine(SceneWaitAndLoadLevel("LevelSelectorScene"));
+        StartCoroutine(WaitAndLoadScene_String("LevelSelectorScene", Sounds.AudioName.NormalButtonClicks));
     }
 
-    IEnumerator SceneWaitAndLoad(int scene)
+    IEnumerator WaitAndLoadScene_Int(int scene, Sounds.AudioName audioName)
     {
-        // For scenes based on index
-        sceneTransitionAnim.SetTrigger("Start");
-        yield return new WaitForSeconds(sceneTransitionDelay);
-        SceneManager.LoadScene(scene);
+        if (AudioManager.instance != null)
+        {
+            // For scenes based on index
+            AudioManager.instance.PlayAudio(audioName, false);
+            sceneTransitionAnim.SetTrigger("Start");
+            yield return new WaitForSeconds(sceneTransitionDelay);
+            SceneManager.LoadScene(scene);
+        }
+
     }
 
-    IEnumerator SceneWaitAndLoadLevel(string scene)
+    IEnumerator WaitAndLoadScene_String(string scene, Sounds.AudioName audioName)
     {
-        // For levels
-        sceneTransitionAnim.SetTrigger("Start");
-        yield return new WaitForSeconds(sceneTransitionDelay);
-        SceneManager.LoadScene(scene);
+        if (AudioManager.instance != null)
+        {
+            // For levels
+            AudioManager.instance.PlayAudio(audioName, false);
+            sceneTransitionAnim.SetTrigger("Start");
+            yield return new WaitForSeconds(sceneTransitionDelay);
+            SceneManager.LoadScene(scene);
+        }
     }
 
 }

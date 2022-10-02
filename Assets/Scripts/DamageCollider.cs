@@ -14,6 +14,7 @@ public class DamageCollider : MonoBehaviour
 
     Player player;
     float attackerDamage;
+    bool screenShakeToggle;
     // [SerializeField] Camera gameCamera;
     [SerializeField] Animator shakeAnimator;
 
@@ -31,10 +32,12 @@ public class DamageCollider : MonoBehaviour
         if (collider.CompareTag("Attacker"))
         {
             attackerDamage = collider.gameObject.GetComponent<Attacker>().AttackerDamage;
+            AudioManager.instance.PlayAudio(Sounds.AudioName.AttackerDeath, true);
             player.DecreaseHealth(attackerDamage);
         }
 
-        if (true) ScreenShakeOnDamage();    // We can check here if Screen shake is off / on
+        screenShakeToggle = PlayerPrefs.GetInt("screenShake", 1) == 1 ? true : false;
+        if (!screenShakeToggle) ScreenShakeOnDamage();      // shake only if screenShakeToggle is false
         Destroy(collider.gameObject, 0.4f);
     }
 

@@ -16,26 +16,14 @@ public class Defender : MonoBehaviour
     Rigidbody2D myRigidbody;
     Transform myTransform;
     Animator myAnimator;
+
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] HealthBar healthBar;
 
-    [Tooltip("Duration in secs")][SerializeField] float defenderLifetimeDuration = 4f;
+    [Tooltip("Duration in secs")]
+    [SerializeField] float defenderLifetimeDuration = 4f;
     [SerializeField] float attackerDeathDuration = 0.8f;
     [SerializeField] float timeBeforeDefenderAttacks = 3f;
-    [SerializeField] int numberOfDefender = 5;
-
-    #endregion
-
-    #region Getters and Setters
-
-    public int NumberOfDefender
-    {
-        get { return numberOfDefender; }
-        set
-        {
-            numberOfDefender = value;
-        }
-    }
 
     #endregion
 
@@ -56,21 +44,9 @@ public class Defender : MonoBehaviour
 
         if (!IsGrounded()) { return; }
 
-        //  Make Rigidbody static 
-        //  so we can't move it while dragging attackers
+        //  Make Rigidbody static,
+        //  so we can't move it while dragging attackers.
         myRigidbody.bodyType = RigidbodyType2D.Static;
-    }
-
-    public void DecrementDefenderQuantity()
-    {
-        NumberOfDefender--;
-        FindObjectOfType<DefenderButton>().UpdateDefenderQuantity();
-    }
-
-    public void IncrementDefenderQuantity(int amount)
-    {
-        NumberOfDefender += amount;
-        FindObjectOfType<DefenderButton>().UpdateDefenderQuantity();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -104,6 +80,7 @@ public class Defender : MonoBehaviour
 
         if (defenderLifetimeDuration <= 0)
         {
+            AudioManager.instance.PlayAudio(Sounds.AudioName.DefenderDeath, true);
             Destroy(gameObject);
         }
     }
@@ -129,7 +106,5 @@ public class Defender : MonoBehaviour
         }
         return false;
     }
-
-
 
 }

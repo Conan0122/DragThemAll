@@ -248,5 +248,7 @@ MonoBehaviour:
   gameOverPopUp: {fileID: 0}
   levelCompletePopUpAnimControls: {fileID: 0}
   levelCompletePopUp: {fileID: 0}
+  gameProgressPopUpAnimControls: {fileID: 0}
+  gameProgressPopUp: {fileID: 0}
   sceneTransitionAnim: {fileID: 548385948}
   sceneTransitionDelay: 1

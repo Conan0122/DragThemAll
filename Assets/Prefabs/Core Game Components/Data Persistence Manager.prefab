@@ -43,3 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6f1c40ffded1743acd25449f0ae9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData:
+    maxLevelReached: 0
+    currentCoins: 0
+    defendersInfos:
+    - def: 0
+      amt: 5
+    - def: 1
+      amt: 5
+    - def: 2
+      amt: 5
+    - def: 3
+      amt: 5
+  activeLevel: 0
+  encryptEnabled: 0

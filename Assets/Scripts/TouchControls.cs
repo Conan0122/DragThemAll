@@ -80,6 +80,7 @@ public class TouchControls : MonoBehaviour
         if (myCollider == Physics2D.OverlapPoint(touchPos))
         {
             // Get the current touch position w.r.t. character
+            AudioManager.instance.PlayAudio(Sounds.AudioName.AttackerDrag, true);
             deltaX = touchPos.x - transform.position.x;
             deltaY = touchPos.y - transform.position.y;
             rb.gravityScale = 0;

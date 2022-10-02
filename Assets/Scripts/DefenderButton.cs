@@ -6,15 +6,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+public enum DefenderName
+{
+    Level1Wall, Level2Wall, Venus, DrInk
+}
+
 public class DefenderButton : MonoBehaviour
 {
+    #region Rough
+
+    [SerializeField] DefenderName defName;
+    [SerializeField] public GameObject defenderPrefab;
+    [SerializeField] public int numberOfDefender;
+
+    #endregion
+
     #region Variable Initialization
 
     CancelSelectionButton cancelSelectionButton;
     Animator cancelAnimator;
     DefenderButton[] defenderButtons;
-    Defender defender;
-    [SerializeField] Defender defenderPrefab;
     DefenderSpawner defenderSpawner;
     Touch touch;
     Vector2 touchPos;
@@ -45,16 +56,17 @@ public class DefenderButton : MonoBehaviour
         cancelSelectionButton = FindObjectOfType<CancelSelectionButton>();
         cancelAnimator = cancelSelectionButton.GetComponent<Animator>();
         defenderButtons = FindObjectsOfType<DefenderButton>();
-        defender = FindObjectOfType<Defender>();
         defenderQuantityText = GetComponentInChildren<TextMeshProUGUI>();
 
-        UpdateDefenderQuantity();
+        UpdateDefenderQuantityText();
         this.transform.parent.GetComponentInParent<Image>().enabled = false;
     }
 
     private void Update()
     {
         UpdateDefenderQuantity();
+
+        UpdateDefenderQuantityText();
         SelectDefender();
     }
 
@@ -78,14 +90,16 @@ public class DefenderButton : MonoBehaviour
                             button.transform.parent.GetComponentInParent<Image>().enabled = false;
                         }
 
-                        if (defenderPrefab.NumberOfDefender > 0)
+                        if (numberOfDefender > 0)
                         {
                             // Green overlay on defender spawn area
+                            AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
                             defenderSpawner.GetComponent<SpriteRenderer>().color = defenderSpawner.SpawnerOnEnableColor;
                         }
                         else
                         {
                             // Red overlay on defender spawn area
+                            AudioManager.instance.PlayAudio(Sounds.AudioName.EmptyDefenderSlot, true);
                             defenderSpawner.GetComponent<SpriteRenderer>().color = defenderSpawner.SpawnerOnDisableColor;
                         }
 
@@ -97,7 +111,6 @@ public class DefenderButton : MonoBehaviour
                         cancelSelectionButton.GetComponent<Image>().enabled = true;
                         cancelAnimator.enabled = true;
                         cancelAnimator.Play("Cancel Anim", -1, 0f);                                         //  Reset Cancel btn animation everytime btn is disabled
-
                     }
                     break;
             }
@@ -106,11 +119,30 @@ public class DefenderButton : MonoBehaviour
 
     public void UpdateDefenderQuantity()
     {
-        if (!defenderQuantityText)
+        DataPersistenceManager.instance.SaveFile();                     // Debug purpose
+
+        // We need to reverse the index
+        // Because foreach will execute button's name in reverse order.
+        // So if , we have 4 buttons then it will execute 4th button first then 3rd and so on.
+        int index = DataPersistenceManager.instance.gameData.defendersInfos.Count - 1;
+        foreach (DefenderButton button in defenderButtons)
         {
-            return;
+            if (index < DataPersistenceManager.instance.gameData.defendersInfos.Count)
+            {
+                if (button.defName == DataPersistenceManager.instance.gameData.defendersInfos[index].def)
+                {
+                    button.numberOfDefender = DataPersistenceManager.instance.gameData.defendersInfos[index].amt;
+                }
+                index--;
+            }
         }
-        defenderQuantityText.text = defenderPrefab.NumberOfDefender.ToString();
+    }
+
+    public void UpdateDefenderQuantityText()
+    {
+        if (!defenderQuantityText) { return; }
+
+        defenderQuantityText.text = numberOfDefender.ToString();
     }
 
 }

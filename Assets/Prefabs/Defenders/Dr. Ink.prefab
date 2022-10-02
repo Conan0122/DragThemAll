@@ -154,10 +154,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   healthBar: {fileID: 37947431}
+  defenderName: 3
   defenderLifetimeDuration: 8
   attackerDeathDuration: 0.8
   timeBeforeDefenderAttacks: 3
-  numberOfDefender: 5
+  numberOfDefender: 9
 --- !u!70 &8839699821068961855
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

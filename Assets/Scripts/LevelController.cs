@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class LevelController : MonoBehaviour
     TaskGiver taskGiver;
     Player playerHealth;
     SceneControls sceneControls;
+    Coins coins;
+
+    [SerializeField] int minCoinsToBeRewarded;
+    [SerializeField] int maxCoinsToBeRewarded;
+    int randomCoinsForReward;
 
     bool isIncremented = false;
 
@@ -33,6 +39,10 @@ public class LevelController : MonoBehaviour
         taskGiver = FindObjectOfType<TaskGiver>();
         playerHealth = FindObjectOfType<Player>();
         sceneControls = FindObjectOfType<SceneControls>();
+        coins = FindObjectOfType<Coins>();
+
+        randomCoinsForReward = Random.Range(minCoinsToBeRewarded, maxCoinsToBeRewarded);
+        Debug.Log($"coins to be rewarded" + randomCoinsForReward);
     }
 
     private void Update()
@@ -54,7 +64,7 @@ public class LevelController : MonoBehaviour
                 Destroy(attackersLeftInScene);
             }
 
-            if (!isIncremented)
+            if (!isIncremented && DataPersistenceManager.instance != null)
             {
                 Debug.Log($"Active Level after incr : " + DataPersistenceManager.instance.ActiveLevel);
                 Debug.Log($"Max Level : " + DataPersistenceManager.instance.gameData.MaxlevelReached);
@@ -63,8 +73,10 @@ public class LevelController : MonoBehaviour
                 {
                     DataPersistenceManager.instance.ActiveLevel++;
                     DataPersistenceManager.instance.gameData.MaxlevelReached++;
-                    DataPersistenceManager.instance.SaveFile();
+                    coins.AddCoins(randomCoinsForReward);       // Show rewarded coins in pop up UI
                 }
+
+                DataPersistenceManager.instance.SaveFile();
 
                 isIncremented = true;
             }

@@ -190,10 +190,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   healthBar: {fileID: 6947685170434632095}
+  defenderName: 2
   defenderLifetimeDuration: 50
   attackerDeathDuration: 0.8
   timeBeforeDefenderAttacks: 3
-  numberOfDefender: 5
+  numberOfDefender: 2
 --- !u!1001 &4285901828529070173
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,14 +3,17 @@
 */
 
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class GameData
 {
     #region Variable Initialization
 
     [SerializeField] int maxLevelReached;
     [SerializeField] int currentCoins;
+    [SerializeField] public List<DefendersInfo> defendersInfos;
 
     #endregion
 
@@ -26,6 +29,13 @@ public class GameData
         set { currentCoins = value; }
     }
 
-
-
 }
+
+[Serializable]
+public class DefendersInfo
+{
+    public DefenderName def;
+    public int amt;
+}
+
+

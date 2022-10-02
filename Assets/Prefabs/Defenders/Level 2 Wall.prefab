@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6158633693374732168}
   - component: {fileID: 6158633693374732166}
   m_Layer: 10
-  m_Name: Concrete Wall
+  m_Name: Level 2 Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,10 +102,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   healthBar: {fileID: 6439219517642906303}
+  defenderName: 1
   defenderLifetimeDuration: 20
   attackerDeathDuration: 0.8
   timeBeforeDefenderAttacks: 3
-  numberOfDefender: 5
+  numberOfDefender: 10
 --- !u!50 &6158633693374732168
 Rigidbody2D:
   serializedVersion: 4

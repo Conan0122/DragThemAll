@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18f067a0634d6945a6a8786d0ca15cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCoinsToBeRewarded: 30
+  maxCoinsToBeRewarded: 35
 --- !u!4 &224764540
 Transform:
   m_ObjectHideFlags: 0

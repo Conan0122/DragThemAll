@@ -120,9 +120,10 @@ public class Attacker : MonoBehaviour
                     this.transform.position = new Vector2(item.transform.position.x, item.transform.position.y);
                     myRb.gravityScale = 0;
                     Destroy(this.gameObject, 1f);   //  Can change hardcoded death duration to serialized field
-
+                    
                     if (!isIncremented)
                     {
+                        AudioManager.instance.PlayAudio(Sounds.AudioName.DestroyerAbsorb, true);
                         taskGiver.IncrementQuest(this.gameObject.name, Quest.GoalType.Kill);
                         isIncremented = true;
                     }

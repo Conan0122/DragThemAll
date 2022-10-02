@@ -5,6 +5,7 @@
 
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Security.Cryptography;
@@ -108,10 +109,17 @@ public class DataPersistenceManager : MonoBehaviour
 
     }
 
-    void NewGameData()
+    public void NewGameData()
     {
         gameData.MaxlevelReached = 1;
         gameData.CurrentCoins = 100;
+
+        for (int i = 0; i < DataPersistenceManager.instance.gameData.defendersInfos.Count; i++)
+        {
+            // Reset defenders amount
+            gameData.defendersInfos[i].amt = 5;
+        }
+
         SaveFile();
     }
 

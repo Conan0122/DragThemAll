@@ -1004,7 +1004,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
-        m_MethodName: HomeButton
+        m_MethodName: BackHomeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2087,7 +2087,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
-        m_MethodName: HomeButton
+        m_MethodName: BackHomeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 7653882695857671784}
   - component: {fileID: 7653882695857671791}
   m_Layer: 5
-  m_Name: Audio Btn
+  m_Name: Settings Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4609185579893539645, guid: a0ce337fa92f684448f4cdd5d1395594, type: 3}
+  m_Sprite: {fileID: 2286453115159050083, guid: 2ef1abbf1bb37c6439386b2e8efb2b81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2329,7 +2329,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 9043110107462484230, guid: 4760ed396eec005479f5ca0b79cd2701, type: 3}
+    m_PressedSprite: {fileID: -6797613086692303650, guid: c89d8ec6cdc30b143a9012fe1a79f287, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2342,7 +2342,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7653882695857671784}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Settings
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7653882696814282007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,7 +2709,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
-        m_MethodName: HomeButton
+        m_MethodName: BackHomeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2720,7 +2732,7 @@ GameObject:
   - component: {fileID: 7653882697195045867}
   - component: {fileID: 7653882697195045866}
   m_Layer: 5
-  m_Name: Pause Canvas
+  m_Name: PopUp Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

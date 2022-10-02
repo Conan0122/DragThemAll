@@ -11,7 +11,8 @@ public class DefenderSpawner : MonoBehaviour
 {
     #region Variable Initialization
 
-    Defender defender;
+    GameObject defender;
+    DefenderButton defenderButton;
     DefenderButton[] defenderButtons;
     CancelSelectionButton cancelSelectionButton;
     Touch touch;
@@ -49,13 +50,14 @@ public class DefenderSpawner : MonoBehaviour
 
     private void Start()
     {
+        defenderButton = FindObjectOfType<DefenderButton>();
         defenderButtons = FindObjectsOfType<DefenderButton>();
         cancelSelectionButton = FindObjectOfType<CancelSelectionButton>();
         myCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = new Color32(0, 0, 0, 0);
         mainCamera = Camera.main;
-        
+
         CreateDefenderParent();
     }
 
@@ -65,7 +67,7 @@ public class DefenderSpawner : MonoBehaviour
         if (!defenderParent) defenderParent = new GameObject(DEFENDER_PARENT);
     }
 
-    public void SetSelectedDefender(Defender defenderToSelect)
+    public void SetSelectedDefender(GameObject defenderToSelect)
     {
         defender = defenderToSelect;
     }
@@ -85,20 +87,26 @@ public class DefenderSpawner : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Ended:
-                    if (myCollider == Physics2D.OverlapPoint(touchPos) && defender.NumberOfDefender > 0)
+                    // if (myCollider == Physics2D.OverlapPoint(touchPos))
+                    if (myCollider == Physics2D.OverlapPoint(touchPos))
                     {
+                        int index = DataPersistenceManager.instance.gameData.defendersInfos.Count - 1;
                         foreach (DefenderButton button in defenderButtons)
                         {
-                            if (button.DefenderButtonIsSelected == true)
+                            if (button.DefenderButtonIsSelected == true && button.numberOfDefender > 0)
                             {
                                 DefenderToSpawn(GetSpawnPosition());
-                                spriteRenderer.color = new Color32(0, 0, 0, 0);                     //  Make Defender spawn game area transparent
+                                DecrementDefenderQuantity(index);
                             }
+                            index--;
+
                             button.DefenderButtonIsSelected = false;
                             cancelSelectionButton.GetComponent<Image>().enabled = false;
                             cancelSelectionButton.GetComponent<Animator>().enabled = false;
                             button.transform.parent.GetComponentInParent<Image>().enabled = false;  //  Disable selected defender's border
+                            spriteRenderer.color = new Color32(0, 0, 0, 0);                         //  Make Defender spawn game area transparent
                         }
+                        
                     }
                     break;
             }
@@ -115,9 +123,23 @@ public class DefenderSpawner : MonoBehaviour
 
     void DefenderToSpawn(Vector2 spawnPosition)
     {
-        Defender newDefender = Instantiate(defender, spawnPosition, Quaternion.identity);
-        defender.DecrementDefenderQuantity();
+        GameObject newDefender = Instantiate(defender, spawnPosition, Quaternion.identity);
+        AudioManager.instance.PlayAudio(Sounds.AudioName.DefenderSpawn, true);
         newDefender.transform.parent = defenderParent.transform;
+    }
+
+    public void DecrementDefenderQuantity(int index)
+    {
+        // Decrement the defender from gamedata
+        DataPersistenceManager.instance.gameData.defendersInfos[index].amt--;
+        DataPersistenceManager.instance.SaveFile();
+    }
+
+    public void IncrementDefenderQuantity(int amount, int index)
+    {
+        // Increment the defender from gamedata
+        DataPersistenceManager.instance.gameData.defendersInfos[index].amt--;
+        DataPersistenceManager.instance.SaveFile();
     }
 
 

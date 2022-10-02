@@ -48,6 +48,7 @@ public class CancelSelectionButton : MonoBehaviour
                 case TouchPhase.Ended:
                     if (myCollider == Physics2D.OverlapPoint(touchPos))
                     {
+                        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
                         Image image = this.gameObject.GetComponent<Image>();
 
                         //  Disable Cancel Btn

@@ -1,6 +1,5 @@
-/*      Handling Player Details
+/*      Handling Player Details on each level
         Health
-        Coins
 */
 
 using System.Collections;
@@ -37,6 +36,8 @@ public class Player : MonoBehaviour
 
     public void DecreaseHealth(float damage)
     {
+        if (!healthBar) return;
+
         CurrentHealth -= damage;
         healthBar.SetHealth(CurrentHealth);
     }
