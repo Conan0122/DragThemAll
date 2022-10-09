@@ -90,10 +90,10 @@ public class DefenderSpawner : MonoBehaviour
                     // if (myCollider == Physics2D.OverlapPoint(touchPos))
                     if (myCollider == Physics2D.OverlapPoint(touchPos))
                     {
-                        int index = DataPersistenceManager.instance.gameData.defendersInfos.Count - 1;
+                        int index = DataPersistenceManager.instance.gameData.DefendersInfos.Count - 1;
                         foreach (DefenderButton button in defenderButtons)
                         {
-                            if (button.DefenderButtonIsSelected == true && button.numberOfDefender > 0)
+                            if (button.DefenderButtonIsSelected == true && button.NumberOfDefender > 0)
                             {
                                 DefenderToSpawn(GetSpawnPosition());
                                 DecrementDefenderQuantity(index);
@@ -131,14 +131,14 @@ public class DefenderSpawner : MonoBehaviour
     public void DecrementDefenderQuantity(int index)
     {
         // Decrement the defender from gamedata
-        DataPersistenceManager.instance.gameData.defendersInfos[index].amt--;
+        DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt--;
         DataPersistenceManager.instance.SaveFile();
     }
 
     public void IncrementDefenderQuantity(int amount, int index)
     {
         // Increment the defender from gamedata
-        DataPersistenceManager.instance.gameData.defendersInfos[index].amt--;
+        DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt--;
         DataPersistenceManager.instance.SaveFile();
     }
 

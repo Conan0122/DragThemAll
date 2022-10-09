@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData:
     maxLevelReached: 0
-    currentCoins: 0
+    currentCoins: 100
     defendersInfos:
     - def: 0
       amt: 5

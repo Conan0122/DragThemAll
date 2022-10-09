@@ -114,10 +114,10 @@ public class DataPersistenceManager : MonoBehaviour
         gameData.MaxlevelReached = 1;
         gameData.CurrentCoins = 100;
 
-        for (int i = 0; i < DataPersistenceManager.instance.gameData.defendersInfos.Count; i++)
+        for (int i = 0; i < DataPersistenceManager.instance.gameData.DefendersInfos.Count; i++)
         {
             // Reset defenders amount
-            gameData.defendersInfos[i].amt = 5;
+            gameData.DefendersInfos[i].Amt = 5;
         }
 
         SaveFile();

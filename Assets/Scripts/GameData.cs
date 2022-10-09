@@ -13,10 +13,11 @@ public class GameData
 
     [SerializeField] int maxLevelReached;
     [SerializeField] int currentCoins;
-    [SerializeField] public List<DefendersInfo> defendersInfos;
+    [SerializeField] List<DefendersInfo> defendersInfos;
 
     #endregion
 
+    #region Getters and setters
     public int MaxlevelReached
     {
         get { return maxLevelReached; }
@@ -29,13 +30,36 @@ public class GameData
         set { currentCoins = value; }
     }
 
+    public List<DefendersInfo> DefendersInfos
+    {
+        get { return defendersInfos; }
+        set { defendersInfos = value; }
+    }
+    #endregion
+
 }
 
 [Serializable]
 public class DefendersInfo
 {
-    public DefenderName def;
-    public int amt;
+    [SerializeField] DefenderName def;
+    [SerializeField] int amt;
+
+    #region Getters and Setters
+
+    public DefenderName Def
+    {
+        get { return def; }
+        set { def = value; }
+    }
+
+    public int Amt
+    {
+        get { return amt; }
+        set { amt = value; }
+    }
+    #endregion
+
 }
 
 

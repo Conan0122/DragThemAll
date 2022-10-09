@@ -13,14 +13,6 @@ public enum DefenderName
 
 public class DefenderButton : MonoBehaviour
 {
-    #region Rough
-
-    [SerializeField] DefenderName defName;
-    [SerializeField] public GameObject defenderPrefab;
-    [SerializeField] public int numberOfDefender;
-
-    #endregion
-
     #region Variable Initialization
 
     CancelSelectionButton cancelSelectionButton;
@@ -32,6 +24,10 @@ public class DefenderButton : MonoBehaviour
     Camera mainCamera;
     Collider2D myCollider;
     TextMeshProUGUI defenderQuantityText;
+
+    [SerializeField] DefenderName defName;
+    [SerializeField] GameObject defenderPrefab;
+    [SerializeField] int numberOfDefender;
 
     bool defenderButtonIsSelected = false;
 
@@ -45,6 +41,12 @@ public class DefenderButton : MonoBehaviour
         {
             defenderButtonIsSelected = value;
         }
+    }
+
+    public int NumberOfDefender
+    {
+        get { return numberOfDefender; }
+        set { numberOfDefender = value; }
     }
     #endregion
 
@@ -124,14 +126,14 @@ public class DefenderButton : MonoBehaviour
         // We need to reverse the index
         // Because foreach will execute button's name in reverse order.
         // So if , we have 4 buttons then it will execute 4th button first then 3rd and so on.
-        int index = DataPersistenceManager.instance.gameData.defendersInfos.Count - 1;
+        int index = DataPersistenceManager.instance.gameData.DefendersInfos.Count - 1;
         foreach (DefenderButton button in defenderButtons)
         {
-            if (index < DataPersistenceManager.instance.gameData.defendersInfos.Count)
+            if (index < DataPersistenceManager.instance.gameData.DefendersInfos.Count)
             {
-                if (button.defName == DataPersistenceManager.instance.gameData.defendersInfos[index].def)
+                if (button.defName == DataPersistenceManager.instance.gameData.DefendersInfos[index].Def)
                 {
-                    button.numberOfDefender = DataPersistenceManager.instance.gameData.defendersInfos[index].amt;
+                    button.numberOfDefender = DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt;
                 }
                 index--;
             }

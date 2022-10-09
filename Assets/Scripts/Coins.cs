@@ -27,19 +27,27 @@ public class Coins : MonoBehaviour
         }
     }
 
+    public bool IsCoinAvailable()
+    {
+        if (DataPersistenceManager.instance.gameData.CurrentCoins > 0) { return true; }
+        else { return false; }
+    }
+
     public void AddCoins(int amount)
     {
         Debug.Log(amount + " coins added");
         DataPersistenceManager.instance.gameData.CurrentCoins += amount;
+        DataPersistenceManager.instance.SaveFile();
     }
 
     public void SpendCoins(int amount)
     {
         Debug.Log($"Coins decremented by " + amount);
 
-        if (DataPersistenceManager.instance.gameData.CurrentCoins > 0)
+        if (IsCoinAvailable())
         {
             DataPersistenceManager.instance.gameData.CurrentCoins -= amount;
+            DataPersistenceManager.instance.SaveFile();
         }
         else
         {

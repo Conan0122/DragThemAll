@@ -173,10 +173,11 @@ public class SceneControls : MonoBehaviour
 
     public void GoToScene(string sceneName)
     {
+        //  Can put this on back button well.
         StartCoroutine(WaitAndLoadScene_String(sceneName, Sounds.AudioName.NormalButtonClicks));
         Time.timeScale = 1;
     }
-
+    
     public void NextLevelButton()
     {
         /*          Make one scene, named "End of Levels".
