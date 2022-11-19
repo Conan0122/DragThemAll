@@ -27,9 +27,9 @@ public class Coins : MonoBehaviour
         }
     }
 
-    public bool IsCoinAvailable()
+    public bool IsCoinAvailable(int amount)
     {
-        if (DataPersistenceManager.instance.gameData.CurrentCoins > 0) { return true; }
+        if (DataPersistenceManager.instance.gameData.CurrentCoins > amount) { return true; }
         else { return false; }
     }
 
@@ -44,7 +44,7 @@ public class Coins : MonoBehaviour
     {
         Debug.Log($"Coins decremented by " + amount);
 
-        if (IsCoinAvailable())
+        if (IsCoinAvailable(amount))
         {
             DataPersistenceManager.instance.gameData.CurrentCoins -= amount;
             DataPersistenceManager.instance.SaveFile();

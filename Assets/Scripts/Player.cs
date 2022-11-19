@@ -10,9 +10,10 @@ public class Player : MonoBehaviour
 {
     #region Variable Initialization
 
+    [Header("Health")]
     [SerializeField] HealthBar healthBar;
-
     [SerializeField] float maxHealth = 100;
+
     float currentHealth;
 
     #endregion
@@ -21,10 +22,7 @@ public class Player : MonoBehaviour
     public float CurrentHealth
     {
         get { return currentHealth; }
-        set
-        {
-            currentHealth = value;
-        }
+        set { currentHealth = value; }
     }
     #endregion
 

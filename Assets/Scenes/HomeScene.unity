@@ -593,6 +593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6630560211337113118, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
+      propertyPath: gameData.maxLevelReached
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6630560211337113119, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
       propertyPath: m_Name
       value: Data Persistence Manager

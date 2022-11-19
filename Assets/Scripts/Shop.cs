@@ -36,7 +36,8 @@ public class Shop : MonoBehaviour
         // If coins available,
         // user can buy defenders
         // else can't.
-        if (coins.IsCoinAvailable())
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        if (coins.IsCoinAvailable(cost))
         {
             DataPersistenceManager.instance.gameData.DefendersInfos[defIndex].Amt += defAmount;
             coins.SpendCoins(cost);
@@ -47,6 +48,21 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void BuyTrail(int cost)
+    {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        if (coins.IsCoinAvailable(cost))
+        {
+            DataPersistenceManager.instance.gameData.BoughtTrailsAlready = true;
+            coins.SpendCoins(cost);
+            Debug.Log($"Bought");
+        }
+        else
+        {
+            AudioManager.instance.PlayAudio(Sounds.AudioName.EmptyDefenderSlot, false);
+            Debug.Log($"No coins to buy any defender, buy some coins first");
+        }
+    }
 
 
 }

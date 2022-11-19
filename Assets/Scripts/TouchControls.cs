@@ -10,6 +10,7 @@ public class TouchControls : MonoBehaviour
 {
     #region Variable Initialization
 
+    Player player;
     Rigidbody2D rb;
     Camera mainCamera;
     Collider2D myCollider;
@@ -28,10 +29,7 @@ public class TouchControls : MonoBehaviour
     public bool MoveAllowed
     {
         get { return moveAllowed; }
-        set
-        {
-            moveAllowed = value;
-        }
+        set { moveAllowed = value; }
     }
     #endregion
 
@@ -44,6 +42,7 @@ public class TouchControls : MonoBehaviour
         attacker = FindObjectOfType<Attacker>();
         attackerAnimator = attacker.GetComponent<Animator>();
         defenderButton = FindObjectOfType<DefenderButton>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Update()
@@ -91,21 +90,43 @@ public class TouchControls : MonoBehaviour
 
     void AttackerDragging()
     {
+        var trailParticlesEmission = attacker.TrailParticles.emission;
         if (myCollider == Physics2D.OverlapPoint(touchPos) || MoveAllowed)
         {
             rb.MovePosition(new Vector2(touchPos.x - deltaX, touchPos.y - deltaY));
             rb.velocity = new Vector2(0, 0);
             attackerAnimator.enabled = false;      //  disable animation while dragging
+
+            if (attacker.AttackerTrails && attacker.TrailParticles)
+            {
+                // attacker.AttackerTrails.startColor = Color.blue;
+                // attacker.AttackerTrails.endColor = Color.white;
+                attacker.AttackerTrails.emitting = true;
+
+                if (trailParticlesEmission.enabled && DataPersistenceManager.instance.gameData.IsDefaultTrailParticlesActive)
+                {
+                    // Here we can change in settings if we want to enable particle effects or not,
+                    // turning off will improve performance.
+                    trailParticlesEmission.enabled = true;
+                    attacker.TrailParticles.Play();
+                }
+            }
         }
     }
 
     void AttackerDragReleased()
     {
+        var trailParticlesEmission = attacker.TrailParticles.emission;
         if (myCollider == Physics2D.OverlapPoint(touchPos) || MoveAllowed)
         {
             MoveAllowed = false;
             rb.gravityScale = initialGravity;
             attackerAnimator.enabled = enabled;    //  enable animation when dropped
+
+            if (attacker.AttackerTrails)
+                attacker.AttackerTrails.emitting = false;
+            if (attacker.TrailParticles)
+                trailParticlesEmission.enabled = false;
         }
     }
 

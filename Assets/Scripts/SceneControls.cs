@@ -1,7 +1,9 @@
 /*      Handling Level/ Scene Mechanisms
         Managing Scene Loading like
         Pause, Restart, GameOver, Level Complete
-        Play, Shop, Watch Ads, Settings, Share
+        Play, Shop, Watch Ads, Settings, Share, Buy pop up
+
+        // DON'T MAKE IT SINGLETON CLASS //
 */
 
 using System.Collections;
@@ -13,6 +15,8 @@ using UnityEngine.SceneManagement;
 public class SceneControls : MonoBehaviour
 {
     #region Variable Initialization
+
+    Shop shop;
 
     [Header("Pop Ups:-")]
     [SerializeField] GameObject popUpBackground;
@@ -31,6 +35,9 @@ public class SceneControls : MonoBehaviour
     [Header("GameProgress")]
     [SerializeField] PopUpAnimControls gameProgressPopUpAnimControls;
     [SerializeField] GameObject gameProgressPopUp;
+    [Header("BuyTrail")]
+    [SerializeField] PopUpAnimControls buyTrailPopUpAnimControls;
+    [SerializeField] GameObject buyTrailPopUp;
 
     [Header("SceneTransitions")]
     [SerializeField] Animator sceneTransitionAnim;
@@ -44,6 +51,8 @@ public class SceneControls : MonoBehaviour
 
     private void Start()
     {
+        shop = FindObjectOfType<Shop>();
+
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         if (popUpBackground)
@@ -55,6 +64,7 @@ public class SceneControls : MonoBehaviour
             if (taskPopUp) taskPopUp.SetActive(false);
             if (gameOverPopUp) gameOverPopUp.SetActive(false);
             if (gameProgressPopUp) gameProgressPopUp.SetActive(false);
+            if (buyTrailPopUp) buyTrailPopUp.SetActive(false);
         }
     }
 
@@ -64,6 +74,7 @@ public class SceneControls : MonoBehaviour
     //              GameOver
     //              Level Complete
     //              Game Progress
+    //              Buy Trail
 
     public void PauseAndCancel()
     {
@@ -148,14 +159,42 @@ public class SceneControls : MonoBehaviour
     {
         DataPersistenceManager.instance.NewGameData();
         AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
-        gameProgressPopUpAnimControls.ClosePopUpAnim();
+        CloseResetPopUp();
     }
 
-    public void CancelResetProgress()
+    public void CloseResetPopUp()
     {
         AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
         gameProgressPopUpAnimControls.ClosePopUpAnim();
     }
+
+    public void BuyTrailPopUp()
+    {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        popUpBackground.SetActive(true);
+        buyTrailPopUp.SetActive(true);
+        buyTrailPopUpAnimControls.OpenPopUpAnim();
+    }
+    public void BuyTrailButton(int cost)
+    {
+        //  If bought successfully
+        //      close pop up.
+        //  else do something so that user gets to know that purchase failed.
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        if (shop)
+        {
+            CloseBuyTrailPopUp();
+            shop.BuyTrail(cost);
+            Debug.Log($"Buying");
+        }
+    }
+    public void CloseBuyTrailPopUp()
+    {
+        AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+        buyTrailPopUpAnimControls.ClosePopUpAnim();
+    }
+
+    // --------------------------------------------------------
 
     public void Restart()
     {
@@ -173,11 +212,12 @@ public class SceneControls : MonoBehaviour
 
     public void GoToScene(string sceneName)
     {
+        DataPersistenceManager.instance.LoadFile();
         //  Can put this on back button well.
         StartCoroutine(WaitAndLoadScene_String(sceneName, Sounds.AudioName.NormalButtonClicks));
         Time.timeScale = 1;
     }
-    
+
     public void NextLevelButton()
     {
         /*          Make one scene, named "End of Levels".

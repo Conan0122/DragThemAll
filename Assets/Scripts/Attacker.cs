@@ -6,7 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 public class Attacker : MonoBehaviour
 {
     #region Variable Initialization
@@ -22,6 +22,8 @@ public class Attacker : MonoBehaviour
     [Header("Attacker data")]
     [SerializeField] GameObject[] attackerDestroyers;
     [SerializeField] LayerMask groundLayerMask;
+    [SerializeField] TrailRenderer attackerTrails;
+    [SerializeField] ParticleSystem trailParticles;         //  Add this on customization section in shop
     [Tooltip("Duration before attacker starts moving")]
     [SerializeField] float delayBeforeAttackerMoves = .3f;
     [SerializeField] float attackerMovementSpeed = 2f;
@@ -37,11 +39,21 @@ public class Attacker : MonoBehaviour
     public float AttackerDamage
     {
         get { return attackerDamage; }
-        set
-        {
-            attackerDamage = value;
-        }
+        set { attackerDamage = value; }
     }
+
+    public TrailRenderer AttackerTrails
+    {
+        get { return attackerTrails; }
+        set { attackerTrails = value; }
+    }
+
+    public ParticleSystem TrailParticles
+    {
+        get { return trailParticles; }
+        set { trailParticles = value; }
+    }
+
     #endregion
 
     void Start()

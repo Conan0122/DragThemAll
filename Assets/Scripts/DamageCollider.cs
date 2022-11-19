@@ -12,10 +12,10 @@ public class DamageCollider : MonoBehaviour
 {
     #region Variable Initialization
 
+    [SerializeField] GameObject attackerDeathVFX;
     Player player;
     float attackerDamage;
     bool screenShakeToggle;
-    // [SerializeField] Camera gameCamera;
     [SerializeField] Animator shakeAnimator;
 
     #endregion
@@ -33,12 +33,14 @@ public class DamageCollider : MonoBehaviour
         {
             attackerDamage = collider.gameObject.GetComponent<Attacker>().AttackerDamage;
             AudioManager.instance.PlayAudio(Sounds.AudioName.AttackerDeath, true);
+            Instantiate(attackerDeathVFX, collider.transform.position, Quaternion.identity);
             player.DecreaseHealth(attackerDamage);
         }
 
         screenShakeToggle = PlayerPrefs.GetInt("screenShake", 1) == 1 ? true : false;
         if (!screenShakeToggle) ScreenShakeOnDamage();      // shake only if screenShakeToggle is false
-        Destroy(collider.gameObject, 0.4f);
+
+        Destroy(collider.gameObject);
     }
 
     void ScreenShakeOnDamage()

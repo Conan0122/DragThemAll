@@ -13,6 +13,8 @@ public class GameData
 
     [SerializeField] int maxLevelReached;
     [SerializeField] int currentCoins;
+    [SerializeField] bool isDefaultTrailParticlesActive;
+    [SerializeField] bool boughtTrailsAlready;
     [SerializeField] List<DefendersInfo> defendersInfos;
 
     #endregion
@@ -28,6 +30,20 @@ public class GameData
     {
         get { return currentCoins; }
         set { currentCoins = value; }
+    }
+    
+    //  For getting and setting trail particles status
+    public bool IsDefaultTrailParticlesActive
+    {
+        get { return isDefaultTrailParticlesActive; }
+        set { isDefaultTrailParticlesActive = value; }
+    }
+
+    //  For getting and setting "if user ever bought trail particles before" 
+    public bool BoughtTrailsAlready
+    {
+        get { return boughtTrailsAlready; }
+        set { boughtTrailsAlready = value; }
     }
 
     public List<DefendersInfo> DefendersInfos

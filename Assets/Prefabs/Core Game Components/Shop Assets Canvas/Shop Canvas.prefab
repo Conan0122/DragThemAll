@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PowerUps
+  m_text: Defenders
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2105986416}
   - component: {fileID: 2105986415}
   m_Layer: 5
-  m_Name: Coins Button
+  m_Name: Defender Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PowerUpsShop
+          m_StringArgument: DefenderShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2133172296
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 2133172299}
   - component: {fileID: 2133172298}
   m_Layer: 5
-  m_Name: PowerUps Holder
+  m_Name: Defenders Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 5537987517502841588}
   - component: {fileID: 8182847190021417618}
   m_Layer: 5
-  m_Name: Coins Button
+  m_Name: Customization Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CustomizatuibShop
+          m_StringArgument: CustomizationShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1988046681970397046
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 2081851196361163764}
   - component: {fileID: 6132385650715481520}
   m_Layer: 5
-  m_Name: Coins Button
+  m_Name: Offer Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

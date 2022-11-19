@@ -15,12 +15,15 @@ public class GameTimer : MonoBehaviour
     TaskGiver taskGiver;
     [SerializeField] TextMeshProUGUI levelTimerText;
     [SerializeField] TextMeshProUGUI initialTimerText;
+    [SerializeField] GameObject startPanelButton;
     TimeSpan time;
 
     [Tooltip("Timer in Seconds")]
     [SerializeField] float levelTime = 10;
     [SerializeField] int initialTime = 3;
     bool levelTimerIsReached = false;
+
+    bool startLevelTimer = false;
 
     #endregion
 
@@ -30,18 +33,22 @@ public class GameTimer : MonoBehaviour
         get { return levelTimerIsReached; }
         set { levelTimerIsReached = value; }
     }
+    public bool StartLevelTimer
+    {
+        get { return startLevelTimer; }
+        set { startLevelTimer = value; }
+    }
     #endregion
 
     void Start()
     {
+        initialTimerText.gameObject.SetActive(false);
         attackerSpawner = FindObjectOfType<AttackerSpawner>();
         taskGiver = FindObjectOfType<TaskGiver>();
 
-        // Show level Time in timer icom at start
+        // Show level Time in timer icon at start
         time = TimeSpan.FromSeconds(levelTime);
         levelTimerText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString("00");
-
-        InitialTimerControl();
     }
 
     void Update()
@@ -50,6 +57,15 @@ public class GameTimer : MonoBehaviour
         {
             LevelTimer();
         }
+    }
+    public void StartPanelControls()
+    {
+        // Disable the panel
+        // Start the initial countdown timer
+        startPanelButton.SetActive(false);
+        initialTimerText.gameObject.SetActive(true);
+        StartLevelTimer = true;
+        InitialTimerControl();
     }
 
     void InitialTimerControl()

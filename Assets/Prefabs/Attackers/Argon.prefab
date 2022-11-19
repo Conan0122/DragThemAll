@@ -185,11 +185,11 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  deathVFX: {fileID: 6285285574179169110, guid: 68bde26cb0e021b459d879d0b1ee97f3, type: 3}
   delayBeforeAttackerMoves: 0.3
   attackerMovementSpeed: 3
   extraRaycastHeight: 0.2
   attackerDamage: 6
-  attackerID: 1
 --- !u!95 &5759230467396986219
 Animator:
   serializedVersion: 3
