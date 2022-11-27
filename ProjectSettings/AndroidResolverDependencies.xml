@@ -1,5 +1,6 @@
 <dependencies>
   <packages>
+    <package>com.unity3d.mediation:admob-adapter:[1.0,2.0[</package>
     <package>com.unity3d.mediation:mediation-sdk:[1.0,2.0[</package>
     <package>com.unity3d.mediation:unityads-adapter:[1.0,2.0[</package>
   </packages>

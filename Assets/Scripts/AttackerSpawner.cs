@@ -95,7 +95,8 @@ public class AttackerSpawner : MonoBehaviour
                                              attackerSpawnLocation[randomSpawner].position,
                                              Quaternion.identity);
 
-            newAttacker.transform.parent = attackerParent.transform;
+            if (attackerParent){ newAttacker.transform.parent = attackerParent.transform; }
+            
         }
 
     }

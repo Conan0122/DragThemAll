@@ -43,11 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94e90af896038047ae6ad3695338593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardedShowAdsBtn: {fileID: 0}
   androidGameId: 4983367
   IOSGameId: 4983366
-  androidInterstitialPlacementId: Interstitial_Android
-  IOSInterstitialPlacementId: Interstitial_iOS
-  androidRewardedPlacementId: Rewarded_Android
-  IOSRewardedPlacementId: Rewarded_iOS
+  androidInterstitialAdUnitId: Interstitial_Android
+  IOSInterstitialAdUnitId: Interstitial_iOS
+  coinsRewardedAdsBtns:
+  - {fileID: 0}
+  defenderRewardedAdsBtns:
+  - {fileID: 0}
+  androidRewardedAdUnitId: Rewarded_Android
+  androidRewardedAdUnitId2: Rewarded_Android2
+  IOSRewardedAdUnitId: Rewarded_iOS
+  IOSRewardedAdUnitId2: Rewarded_iOS2
   testMode: 1
