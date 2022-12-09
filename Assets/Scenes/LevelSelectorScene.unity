@@ -2714,63 +2714,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   lockImage: {fileID: 0}
---- !u!1001 &952786051
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113117, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630560211337113119, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
-      propertyPath: m_Name
-      value: Data Persistence Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 242a173f2b2bb694eb8b39184b8c3518, type: 3}
 --- !u!1 &1006192525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,6 +4261,18 @@ MonoBehaviour:
           m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1438822620}
+        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
+        m_MethodName: ShowInterstitialAds
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 25
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1649221003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5163,7 +5118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7433674011748551465, guid: 3f23e7857ba25f2408f8d888f0780c74, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7433674011748551465, guid: 3f23e7857ba25f2408f8d888f0780c74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5542,6 +5497,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1318079596}
+    - target: {fileID: 7098088712152402246, guid: 29eac8695c908ca4cb483ce15111ce5f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098088712152402246, guid: 29eac8695c908ca4cb483ce15111ce5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098088712152402246, guid: 29eac8695c908ca4cb483ce15111ce5f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098088712152402246, guid: 29eac8695c908ca4cb483ce15111ce5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
     - target: {fileID: 7098088713396559573, guid: 29eac8695c908ca4cb483ce15111ce5f, type: 3}
       propertyPath: m_Name
       value: Coins Bar Canvas
@@ -5647,9 +5618,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ads Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8865015577089031402, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8865015577089031403, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8865015577089031403, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5692,9 +5667,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
+      propertyPath: roughText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
+      propertyPath: coinsRewardedAdsBtns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
       propertyPath: coinsRewardedAdsBtns.Array.data[0]
       value: 
       objectReference: {fileID: 1052719878}
+    - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
+      propertyPath: defenderRewardedAdsBtns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8865015577089031404, guid: 5761dd99419116e46ae6fae8dee025d7, type: 3}
       propertyPath: defenderRewardedAdsBtns.Array.data[0]
       value: 

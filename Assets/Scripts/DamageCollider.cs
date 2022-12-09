@@ -35,12 +35,13 @@ public class DamageCollider : MonoBehaviour
             AudioManager.instance.PlayAudio(Sounds.AudioName.AttackerDeath, true);
             Instantiate(attackerDeathVFX, collider.transform.position, Quaternion.identity);
             player.DecreaseHealth(attackerDamage);
+            
+            screenShakeToggle = PlayerPrefs.GetInt("screenShake", 1) == 1 ? true : false;
+            if (!screenShakeToggle) ScreenShakeOnDamage();      // shake only if screenShakeToggle is false
+
+            Destroy(collider.gameObject);
         }
 
-        screenShakeToggle = PlayerPrefs.GetInt("screenShake", 1) == 1 ? true : false;
-        if (!screenShakeToggle) ScreenShakeOnDamage();      // shake only if screenShakeToggle is false
-
-        Destroy(collider.gameObject);
     }
 
     void ScreenShakeOnDamage()

@@ -32,19 +32,13 @@ public class DefenderSpawner : MonoBehaviour
     public Color32 SpawnerOnEnableColor
     {
         get { return spawnerOnEnableColor; }
-        set
-        {
-            spawnerOnEnableColor = value;
-        }
+        set { spawnerOnEnableColor = value; }
     }
 
     public Color32 SpawnerOnDisableColor
     {
         get { return spawnerOnDisableColor; }
-        set
-        {
-            spawnerOnDisableColor = value;
-        }
+        set { spawnerOnDisableColor = value; }
     }
     #endregion
 
@@ -55,9 +49,9 @@ public class DefenderSpawner : MonoBehaviour
         cancelSelectionButton = FindObjectOfType<CancelSelectionButton>();
         myCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         spriteRenderer.color = new Color32(0, 0, 0, 0);
         mainCamera = Camera.main;
-
         CreateDefenderParent();
     }
 
@@ -67,6 +61,7 @@ public class DefenderSpawner : MonoBehaviour
         if (!defenderParent) defenderParent = new GameObject(DEFENDER_PARENT);
     }
 
+    // Call this Method from DefenderButton script to get the selected defender
     public void SetSelectedDefender(GameObject defenderToSelect)
     {
         defender = defenderToSelect;
@@ -87,9 +82,9 @@ public class DefenderSpawner : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Ended:
-                    // if (myCollider == Physics2D.OverlapPoint(touchPos))
                     if (myCollider == Physics2D.OverlapPoint(touchPos))
                     {
+                        // Count an index to decrement the defender quantity of selected button
                         int index = DataPersistenceManager.instance.gameData.DefendersInfos.Count - 1;
                         foreach (DefenderButton button in defenderButtons)
                         {
@@ -132,15 +127,8 @@ public class DefenderSpawner : MonoBehaviour
     {
         // Decrement the defender from gamedata
         DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt--;
+        Debug.Log($"Defender decremented = " + DataPersistenceManager.instance.gameData.DefendersInfos[index].Def);
         DataPersistenceManager.instance.SaveFile();
     }
-
-    public void IncrementDefenderQuantity(int amount, int index)
-    {
-        // Increment the defender from gamedata
-        DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt--;
-        DataPersistenceManager.instance.SaveFile();
-    }
-
 
 }

@@ -47,10 +47,8 @@ MonoBehaviour:
   IOSGameId: 4983366
   androidInterstitialAdUnitId: Interstitial_Android
   IOSInterstitialAdUnitId: Interstitial_iOS
-  coinsRewardedAdsBtns:
-  - {fileID: 0}
-  defenderRewardedAdsBtns:
-  - {fileID: 0}
+  coinsRewardedAdsBtns: []
+  defenderRewardedAdsBtns: []
   androidRewardedAdUnitId: Rewarded_Android
   androidRewardedAdUnitId2: Rewarded_Android2
   IOSRewardedAdUnitId: Rewarded_iOS

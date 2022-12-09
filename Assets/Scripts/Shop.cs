@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -29,6 +30,14 @@ public class Shop : MonoBehaviour
     {
         //  Get Defender index
         this.defIndex = index;
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void Update()
+    {
+        
     }
 
     public void BuyDefender(int cost)

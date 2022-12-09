@@ -10,8 +10,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
+using TMPro;
+
 public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
-{   
+{
     [Header("Game Id")]
     [SerializeField] string androidGameId;
     [SerializeField] string IOSGameId;
@@ -33,19 +35,30 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     void Awake()
     {
+        // Initialize ads before showing it
         InitializeAds();
-        // Disable the button untill the ads is ready to show
+        // Disable the Rewarded Ads button untill the ads are ready to show
         // And change alpha of button bit lower
-        foreach (var item in coinsRewardedAdsBtns)
+        if (coinsRewardedAdsBtns != null)
         {
-            item.interactable = false;
-            item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
+            foreach (var item in coinsRewardedAdsBtns)
+            {
+                item.interactable = false;
+                item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
+            }
         }
-        foreach (var item in defenderRewardedAdsBtns)
+
+        if (defenderRewardedAdsBtns != null)
         {
-            item.interactable = false;
-            item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
+            foreach (var item in defenderRewardedAdsBtns)
+            {
+                item.interactable = false;
+                item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
+            }
         }
+        // Load Ads
+        LoadInterstitialAds();
+        LoadRewardedAds();
     }
 
     void InitializeAds()
@@ -55,7 +68,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         // #elif UNITY_ANDROID
         //         placementId = androidGameId;
         // #endif
-
         gameId = (Application.platform == RuntimePlatform.IPhonePlayer) ? IOSGameId : androidGameId;
         adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer) ? IOSInterstitialAdUnitId : androidInterstitialAdUnitId;
         rewardedAdUnitId = (Application.platform == RuntimePlatform.IPhonePlayer) ? IOSRewardedAdUnitId : androidRewardedAdUnitId;
@@ -65,36 +77,38 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void LoadInterstitialAds()
     {
-        Debug.Log($"Interstitial ads loading...");
+        // Load Interstitial ads
+        Debug.Log($"Load Interstitial ads...");
         Advertisement.Load(adUnitId, this);
     }
 
     public void LoadRewardedAds()
     {
-        Debug.Log($"Rewarded ads1 loading..." + rewardedAdUnitId);
+        // Load Rewarded ads for Coins
+        Debug.Log($"Load Coins Rewarded ads1..." + rewardedAdUnitId);
         Advertisement.Load(rewardedAdUnitId, this);
 
-        Debug.Log($"Rewarded ads2 loading..." + rewardedAdUnitId2);
+        // Load Rewarded ads for Defender
+        Debug.Log($"Load Defender Rewarded ads2..." + rewardedAdUnitId2);
         Advertisement.Load(rewardedAdUnitId2, this);
     }
 
-    public void ShowInterstitialAds(int randRangeToShowAds)
+    public void ShowInterstitialAds(int percentageToShowAds)
     {
         // Generate random number
         // and check if its under the range to show ads
         int rand = Random.Range(0, 100);
+        // rand = 24;                          // DEBUG purpose; --> Remove this when done with debugging.
 
-        rand = 24;                          // DEBUG purpose; --> Remove this when done with debugging.
-        if (rand <= randRangeToShowAds)
+        if (rand <= percentageToShowAds)
         {
-            Debug.Log($"Interstitial Ads showing");
+            Debug.Log($"Show Interstitial Ads");
             Advertisement.Show(adUnitId, this);
         }
     }
 
     public void ShowCoinRewardedAds()
     {
-        Debug.Log($"Rewarded Ads showing");
         // Disable the button
         // And change alpha of button bit lower
         foreach (var item in coinsRewardedAdsBtns)
@@ -103,12 +117,12 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
         }
         // Then show the ads
+        Debug.Log($"Show Coin Rewarded Ads");
         Advertisement.Show(rewardedAdUnitId, this);
     }
 
     public void ShowDefenderRewardedAds()
     {
-        Debug.Log($"Rewarded Ads2 showing");
         // Disable the button
         // And change alpha of button bit lower
         foreach (var item in defenderRewardedAdsBtns)
@@ -117,6 +131,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             item.GetComponent<Image>().color = new Color32(255, 255, 255, 120);
         }
         // Then show the ads
+        Debug.Log($"Show Defender Rewarded Ads");
         Advertisement.Show(rewardedAdUnitId2, this);
     }
 
@@ -137,7 +152,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnUnityAdsAdLoaded(string placementId)
     {
         // Button1 --> Ad 1
-        Debug.Log($"Ads1 already loaded"+ rewardedAdUnitId);
+        Debug.Log($"Coins rewarded ads loaded " + rewardedAdUnitId);
         if (rewardedAdUnitId.Equals(placementId))
         {
             // Set button to true
@@ -150,7 +165,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         }
 
         // Button2 --> Ad 2
-        Debug.Log($"Ads2 already loaded"+ rewardedAdUnitId2);
+        Debug.Log($"Defender rewarded ads loaded " + rewardedAdUnitId2);
         if (rewardedAdUnitId2.Equals(placementId))
         {
             // Set button to true
@@ -165,9 +180,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void OnUnityAdsShowStart(string placementId)
     {
-        Debug.Log($"Ads started");
-
-        Debug.Log($"timescale status {Time.timeScale}");
+        Debug.Log($"Ads started to show");
+        Debug.Log($"TEST MODE IS TURNED "+ testMode);
     }
 
     public void OnUnityAdsShowClick(string placementId)
@@ -184,6 +198,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             Debug.Log($"Player rewarded with Coins");      //  Rewards coins.
             Time.timeScale = 1;
+            Debug.Log($"timescale status {Time.timeScale}");
             // Load another load
             Advertisement.Load(rewardedAdUnitId, this);
         }
@@ -193,6 +208,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             Debug.Log($"Player rewarded with Defender");      //  Rewards defenders.
             Time.timeScale = 1;
+            Debug.Log($"timescale status {Time.timeScale}");
             // Load another load
             Advertisement.Load(rewardedAdUnitId2, this);
         }
@@ -207,6 +223,5 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
         Debug.Log($"Error showing Ad Unit {placementId}: {error.ToString()} - {message}");
     }
-
-
+    
 }

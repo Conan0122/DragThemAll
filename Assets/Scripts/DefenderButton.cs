@@ -67,7 +67,6 @@ public class DefenderButton : MonoBehaviour
     private void Update()
     {
         UpdateDefenderQuantity();
-
         UpdateDefenderQuantityText();
         SelectDefender();
     }
@@ -121,25 +120,27 @@ public class DefenderButton : MonoBehaviour
 
     public void UpdateDefenderQuantity()
     {
-        DataPersistenceManager.instance.SaveFile();                     // Debug purpose
+        // DataPersistenceManager.instance.SaveFile();                     // Debug purpose
 
         // We need to reverse the index
         // Because foreach will execute button's name in reverse order.
         // So if , we have 4 buttons then it will execute 4th button first then 3rd and so on.
         int index = DataPersistenceManager.instance.gameData.DefendersInfos.Count - 1;
+
         foreach (DefenderButton button in defenderButtons)
         {
             if (index < DataPersistenceManager.instance.gameData.DefendersInfos.Count)
             {
-                if (button.defName == DataPersistenceManager.instance.gameData.DefendersInfos[index].Def)
-                {
-                    button.numberOfDefender = DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt;
-                }
-                index--;
+                // if (button.defName == DataPersistenceManager.instance.gameData.DefendersInfos[index].Def)
+                // {
+                button.numberOfDefender = DataPersistenceManager.instance.gameData.DefendersInfos[index].Amt;
+                // }
             }
+            index--;
         }
     }
 
+    // Update the Qty text in defender button
     public void UpdateDefenderQuantityText()
     {
         if (!defenderQuantityText) { return; }

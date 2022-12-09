@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData:
-    maxLevelReached: 0
+    maxLevelReached: 1
     currentCoins: 100
+    isDefaultTrailParticlesActive: 0
+    boughtTrailsAlready: 0
     defendersInfos:
     - def: 0
       amt: 5

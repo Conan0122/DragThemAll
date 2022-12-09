@@ -29,7 +29,7 @@ public class Coins : MonoBehaviour
 
     public bool IsCoinAvailable(int amount)
     {
-        if (DataPersistenceManager.instance.gameData.CurrentCoins > amount) { return true; }
+        if (DataPersistenceManager.instance.gameData.CurrentCoins >= amount) { return true; }
         else { return false; }
     }
 

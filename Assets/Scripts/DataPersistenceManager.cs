@@ -5,8 +5,6 @@
 
 using UnityEngine;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -38,6 +36,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance != null)
         {
             Destroy(gameObject);
@@ -48,7 +47,7 @@ public class DataPersistenceManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        filePath = Application.persistentDataPath + "/game_data.dta";
+        filePath = Application.persistentDataPath + "/game_data.json";
     }
 
     public void SaveFile()
@@ -75,7 +74,7 @@ public class DataPersistenceManager : MonoBehaviour
         if (File.Exists(filePath))
         {
             string fileContents = File.ReadAllText(filePath);
-            Debug.Log($"file contebts " + fileContents);
+            Debug.Log($"file contents= " + fileContents);
 
             // Try Loading data
             // Else Load New game data to file
@@ -104,7 +103,7 @@ public class DataPersistenceManager : MonoBehaviour
         else
         {
             NewGameData();
-            Debug.LogError($"*********error**********");
+            Debug.LogError($"*********error//No filepath detected**********");
         }
 
     }
