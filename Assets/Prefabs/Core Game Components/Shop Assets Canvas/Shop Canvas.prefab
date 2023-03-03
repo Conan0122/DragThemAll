@@ -264,7 +264,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DefenderShop
+          m_StringArgument: CustomizationShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2133172296
@@ -683,7 +683,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CustomizationShop
+          m_StringArgument: DefenderShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1988046681970397046
@@ -1583,7 +1583,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OfferShop
+          m_StringArgument: CustomizationShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7301414207948578433
@@ -1952,7 +1952,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CoinShop
+          m_StringArgument: CustomizationShop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8725601129176247894
