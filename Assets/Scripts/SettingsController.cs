@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+/*      Handling settings script
+
+*/
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SettingsController : MonoBehaviour
 {
     #region Variable Initialization
 
     Sounds[] sounds;
+    QualityManager qualityManager;
     SceneControls sceneControls;
 
     [SerializeField] Image sfxOnOffImage;
     [SerializeField] Image musicOnOffImage;
     [SerializeField] Image screenShakeOnOffImage;
+    [SerializeField] TextMeshProUGUI qualityText;
     [SerializeField] bool muteSfx;
     [SerializeField] bool muteMusic;
     [SerializeField] bool screenShake;
@@ -21,12 +24,14 @@ public class SettingsController : MonoBehaviour
     bool sfxSettings;
     bool musicSettings;
     bool screenShakeSettings;
+    bool qualitySettings;
 
     #endregion
 
     void Start()
     {
         sceneControls = FindObjectOfType<SceneControls>();
+        qualityManager = QualityManager.instance;
         sounds = AudioManager.instance._Sounds;
         UpdateSettings();
         MuteSettings(Sounds.AudioType.SFX, muteSfx, "sfxToggle");
@@ -38,7 +43,7 @@ public class SettingsController : MonoBehaviour
         UpdateSettings();
     }
 
-    public void UpdateSettings()
+    void UpdateSettings()
     {
         //  SFX
         sfxSettings = PlayerPrefs.GetInt("sfxToggle") == 1 ? true : false;
@@ -54,6 +59,18 @@ public class SettingsController : MonoBehaviour
         screenShakeSettings = PlayerPrefs.GetInt("screenShake", 1) == 1 ? true : false;
         screenShakeOnOffImage.enabled = screenShakeSettings;
         screenShake = screenShakeSettings;
+
+        // QUALITY TEXT
+        qualitySettings = PlayerPrefs.GetInt(qualityManager.POST_PROCESSING_REFERENCE) == 1 ? true : false;
+        if (qualitySettings)
+        {
+            qualityText.text = "HIGH";
+        }
+        else
+        {
+            qualityText.text = "LOW";
+        }
+
     }
 
     public void ScreenShakeControl()
@@ -62,6 +79,13 @@ public class SettingsController : MonoBehaviour
         screenShake = !screenShake;
         screenShakeOnOffImage.enabled = screenShake;
         PlayerPrefs.SetInt("screenShake", screenShake ? 1: 0);
+    }
+
+    public void QualityControl()
+    {
+        // Used to toggle quality settings
+        qualityManager.QualityControl();
+        PlayerPrefs.SetInt(qualityManager.POST_PROCESSING_REFERENCE, QualityManager.instance.PostProcessVolume.enabled ? 1 : 0);
     }
 
     public void SFXControl()

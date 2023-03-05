@@ -279,14 +279,6 @@ public class SceneControls : MonoBehaviour
         StartCoroutine(WaitAndLoadScene<string>("LevelSelectorScene", Sounds.AudioName.NormalButtonClicks));
     }
 
-    // For Big button with scene transition 
-    // for first 3 big button in home scene
-    public void Experiment<T>(T scene)
-    {
-        StartCoroutine(WaitAndLoadScene<T>(scene, Sounds.AudioName.NormalButtonClicks));
-        Time.timeScale = 1;
-    }
-
     IEnumerator WaitAndLoadScene<T>(T scene, Sounds.AudioName audioName)
     {
         if (AudioManager.instance != null)
