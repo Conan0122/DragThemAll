@@ -11,13 +11,18 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     Coins coins;
+    ShortMsgPopUpManager shortMsgPopUpManager;
 
     int defAmount;
     int defIndex;
 
+    const string NO_COIN_LEFT_ALERT = "Insufficient Coins, buy some coins first";
+    const string BOUGHT_SUCCESSFULLY_ALERT = "Bought successfully";
+
     void Start()
     {
         coins = FindObjectOfType<Coins>();
+        shortMsgPopUpManager = FindObjectOfType<ShortMsgPopUpManager>();
     }
 
     public void DefAmount(int amount)
@@ -32,14 +37,6 @@ public class Shop : MonoBehaviour
         this.defIndex = index;
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    private void Update()
-    {
-        
-    }
-
     public void BuyDefender(int cost)
     {
         // If coins available,
@@ -50,9 +47,11 @@ public class Shop : MonoBehaviour
         {
             DataPersistenceManager.instance.gameData.DefendersInfos[defIndex].Amt += defAmount;
             coins.SpendCoins(cost);
+            shortMsgPopUpManager.ShowPopUpMessage(BOUGHT_SUCCESSFULLY_ALERT);
         }
         else
         {
+            shortMsgPopUpManager.ShowPopUpMessage(NO_COIN_LEFT_ALERT);
             Debug.Log($"No coins to buy any defender, buy some coins first");
         }
     }
@@ -64,11 +63,14 @@ public class Shop : MonoBehaviour
         {
             DataPersistenceManager.instance.gameData.BoughtTrailsAlready = true;
             coins.SpendCoins(cost);
+            shortMsgPopUpManager.ShowPopUpMessage(NO_COIN_LEFT_ALERT);
             Debug.Log($"Bought");
+            shortMsgPopUpManager.ShowPopUpMessage(BOUGHT_SUCCESSFULLY_ALERT);
         }
         else
         {
             AudioManager.instance.PlayAudio(Sounds.AudioName.EmptyDefenderSlot, false);
+            shortMsgPopUpManager.ShowPopUpMessage(NO_COIN_LEFT_ALERT);
             Debug.Log($"No coins to buy any defender, buy some coins first");
         }
     }

@@ -1,9 +1,11 @@
 /*      Handling Level/ Scene Mechanisms
         Managing Scene Loading like
         Pause, Restart, GameOver, Level Complete
-        Play, Shop, Watch Ads, Settings, Share, Buy pop up
+        Play, Shop, Watch Ads, Settings, Share, Buy pop up, Message pop up
 
         // DON'T MAKE IT SINGLETON CLASS //
+
+        //// Separate the pop ups in other script ////
 */
 
 using System;
@@ -12,18 +14,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using TMPro;
 
 public class SceneControls : MonoBehaviour
 {
     #region Variable Initialization
 
     Shop shop;
+    ShortMsgPopUpManager shortMsgPopUpManager;
 
     [Header("Pop Ups:-")]
-    [SerializeField] GameObject popUpBackground;
+    [SerializeField] GameObject popUpBackground;    // Background Image that enables evertime pop up appears
     [Header("Pause")]
-    [SerializeField] PopUpAnimControls pausePopUpAnimControls;
-    [SerializeField] GameObject pausePopUp;
+    [SerializeField] PopUpAnimControls pausePopUpAnimControls;  // To get control over pop up animations like: open/close
+    [SerializeField] GameObject pausePopUp;                     // To enable/disable pop up window
     [Header("Task")]
     [SerializeField] PopUpAnimControls taskPopUpAnimControls;
     [SerializeField] GameObject taskPopUp;
@@ -39,6 +43,9 @@ public class SceneControls : MonoBehaviour
     [Header("BuyTrail")]
     [SerializeField] PopUpAnimControls buyTrailPopUpAnimControls;
     [SerializeField] GameObject buyTrailPopUp;
+    [Header("Message")]
+    [SerializeField] PopUpAnimControls messagePopUpAnimControls;
+    [SerializeField] GameObject messagePopUp;
 
     [Header("SceneTransitions")]
     [SerializeField] Animator sceneTransitionAnim;
@@ -50,12 +57,14 @@ public class SceneControls : MonoBehaviour
     bool isPopUpDisplayed = false;
 
     const string USER_LEVEL = "userLevel";
+    const string GAME_PROGRESS_RESET_ALERT = "Game progress reset successfully";
 
     #endregion
 
     private void Start()
     {
         shop = FindObjectOfType<Shop>();
+        shortMsgPopUpManager = FindObjectOfType<ShortMsgPopUpManager>();
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -69,6 +78,7 @@ public class SceneControls : MonoBehaviour
             if (gameOverPopUp) gameOverPopUp.SetActive(false);
             if (gameProgressPopUp) gameProgressPopUp.SetActive(false);
             if (buyTrailPopUp) buyTrailPopUp.SetActive(false);
+            if (messagePopUp) messagePopUp.SetActive(false);
         }
     }
 
@@ -79,6 +89,7 @@ public class SceneControls : MonoBehaviour
     //              Level Complete
     //              Game Progress
     //              Buy Trail
+    //              Message
 
     public void PauseAndCancel()
     {
@@ -159,17 +170,18 @@ public class SceneControls : MonoBehaviour
         gameProgressPopUpAnimControls.OpenPopUpAnim();
     }
 
-    public void ResetProgress()
+    public void ResetProgress(PopUpAnimControls popUpToClose)
     {
         DataPersistenceManager.instance.NewGameData();
         AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
-        CloseResetPopUp();
+        shortMsgPopUpManager.ShowPopUpMessage(GAME_PROGRESS_RESET_ALERT);
+        ClosePopUp(popUpToClose);
     }
 
-    public void CloseResetPopUp()
+    public void ClosePopUp(PopUpAnimControls popUpToClose)
     {
         AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
-        gameProgressPopUpAnimControls.ClosePopUpAnim();
+        popUpToClose.ClosePopUpAnim();
     }
 
     public void BuyTrailPopUp()
@@ -196,6 +208,20 @@ public class SceneControls : MonoBehaviour
     {
         AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
         buyTrailPopUpAnimControls.ClosePopUpAnim();
+    }
+
+    public void MessagePopUp(string message)
+    {
+        // Open message icon
+        // Do other stuffs like handling background and all
+        if (messagePopUp)
+        {
+            AudioManager.instance.PlayAudio(Sounds.AudioName.NormalButtonClicks, false);
+            popUpBackground.SetActive(true);
+            messagePopUp.SetActive(true);
+            messagePopUpAnimControls.OpenPopUpAnim();
+            messagePopUp.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        }
     }
 
     // --------------------------------------------------------
@@ -299,7 +325,7 @@ public class SceneControls : MonoBehaviour
         }
     }
 
-    
+
 }
 
 

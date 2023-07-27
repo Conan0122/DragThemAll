@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ShopScene.unity
     guid: 344c76330ab1fa84c92d4464fffdb92e
   - enabled: 1
+    path: Assets/Scenes/WatchAdsScene.unity
+    guid: 72306cc2be898914083305267b2ec53a
+  - enabled: 1
     path: Assets/Scenes/CoinShop.unity
     guid: ea77ca52466beef4bace16ce06770c6a
   - enabled: 1

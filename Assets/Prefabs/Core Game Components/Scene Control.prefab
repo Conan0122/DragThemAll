@@ -250,5 +250,9 @@ MonoBehaviour:
   levelCompletePopUp: {fileID: 0}
   gameProgressPopUpAnimControls: {fileID: 0}
   gameProgressPopUp: {fileID: 0}
+  buyTrailPopUpAnimControls: {fileID: 0}
+  buyTrailPopUp: {fileID: 0}
+  messagePopUpAnimControls: {fileID: 0}
+  messagePopUp: {fileID: 0}
   sceneTransitionAnim: {fileID: 548385948}
   sceneTransitionDelay: 1

@@ -1267,10 +1267,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1103190856}
-    - target: {fileID: 473425967, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 5.999954
-      objectReference: {fileID: 0}
     - target: {fileID: 1140844109, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1378,10 +1374,6 @@ PrefabInstance:
     - target: {fileID: 4557471791723696655, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_Name
       value: Level Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557471791723696655, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
@@ -1576,18 +1568,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 399942873}
     m_Modifications:
-    - target: {fileID: 5467934176600267576, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
-      propertyPath: numberOfDefender
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6818025887357064527, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
-      propertyPath: roughDefText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6818025887357064527, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
-      propertyPath: numberOfDefender
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6818025887513073058, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1680,10 +1660,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Defender Btn Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6818025887513073070, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cbacad8a35996a4cb275835d6fb066f, type: 3}
 --- !u!224 &6818025886462935003 stripped
@@ -1714,10 +1690,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1052639523}
-    - target: {fileID: 295911510, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 526818871, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1730,14 +1702,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1103190856}
-    - target: {fileID: 1083394422, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1518236191, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1634467462, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1746,38 +1710,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1103190856}
-    - target: {fileID: 1671631699, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671631699, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671631699, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671631699, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135843641, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135843641, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135843641, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135843641, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 611685361300772437, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1794,10 +1726,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1052639523}
-    - target: {fileID: 7653882696814282007, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7653882696853571163, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1813,10 +1741,6 @@ PrefabInstance:
     - target: {fileID: 7653882697195045864, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_Name
       value: PopUp Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653882697195045864, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7653882697195045876, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
       propertyPath: m_Camera

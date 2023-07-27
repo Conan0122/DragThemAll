@@ -1,5 +1,5 @@
 /*      Handling Pop up Animations Controls,
-        like fade, scaling, shake
+        like fade, scaling, shake using DOTween package
 */
 
 using System.Collections;

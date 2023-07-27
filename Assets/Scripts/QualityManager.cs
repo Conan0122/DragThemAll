@@ -33,6 +33,7 @@ public class QualityManager : MonoBehaviour
 
     void Awake()
     {
+        // Singleton: To keep maintaining post-processing effects run smoothly on scenes.
         if (instance != null)
         {
             Destroy(gameObject);
@@ -45,7 +46,6 @@ public class QualityManager : MonoBehaviour
 
         // QUALITY
         qualitySettings = PlayerPrefs.GetInt(POST_PROCESSING_TOGGLE) == 1 ? true : false;
-        Debug.Log($"quality");
         PostProcessVolume.enabled = qualitySettings;
     }
 

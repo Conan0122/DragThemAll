@@ -122,6 +122,7 @@ public class Attacker : MonoBehaviour
         foreach (var item in attackerDestroyers)
         {
             // Center the position of attacker when it touches destroyer
+            // Shrink the character when it touches the destroyer
             if (touchControls.MoveAllowed == false)
             {
                 if (Mathf.Abs(this.transform.localPosition.x -
