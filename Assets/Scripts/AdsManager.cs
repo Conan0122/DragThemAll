@@ -149,6 +149,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
                 {
                     Debug.Log($"Show message pop up---------------");
                     shortMsgPopUpManager.ShowPopUpMessage(INTERNET_CONNECTION_ERROR);
+                    // Can also use below line instead of above to access pop up.
+                    // FindObjectOfType<ShortPopUpControls>().ShortMessage(INTERNET_CONNECTION_ERROR);
                 }
             }
         }));
