@@ -43,5 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18f067a0634d6945a6a8786d0ca15cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinRewardText: {fileID: 0}
   minCoinsToBeRewarded: 5
   maxCoinsToBeRewarded: 10
+  defenderRewardText: {fileID: 0}
+  defenderRewardSprite: {fileID: 0}
+  defenderSprites:
+  - {fileID: 5864535282416592602, guid: 090094a77ad30284c982e229f5463ecd, type: 3}
+  - {fileID: -2843489614509346930, guid: 79146970694cfd448851dfede6edec19, type: 3}
+  - {fileID: 2994328829104379615, guid: 239ea892198b9b64a8de2379759f4b37, type: 3}
+  - {fileID: -6582431856431020729, guid: 581cfe713c78fd8459a3eba7d44d266c, type: 3}
+  minDefendersToBeRewarded: 1
+  maxDefendersToBeRewarded: 5

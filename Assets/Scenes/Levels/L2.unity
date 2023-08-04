@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18f067a0634d6945a6a8786d0ca15cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinRewardText: {fileID: 7653882697725663142}
   minCoinsToBeRewarded: 30
   maxCoinsToBeRewarded: 35
 --- !u!4 &224764540
@@ -1124,7 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 1052639523}
     - target: {fileID: 473425970, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: levelTime
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1140844109, guid: 17f93c338fc86944c97fb93bd59010f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1716,6 +1717,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7653882697195045877, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
   m_PrefabInstance: {fileID: 7653882697725663140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7653882697725663142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2040987367, guid: 3523a9c8b94e3b747a54c623047c2ed4, type: 3}
+  m_PrefabInstance: {fileID: 7653882697725663140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8728652976476424184
 PrefabInstance:
   m_ObjectHideFlags: 0

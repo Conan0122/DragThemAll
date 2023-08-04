@@ -114,6 +114,7 @@ public class DataPersistenceManager : MonoBehaviour
         gameData.CurrentCoins = 100;
         gameData.IsDefaultTrailParticlesActive = false;
         gameData.BoughtTrailsAlready = false;
+        activeLevel = 1;
 
         for (int i = 0; i < DataPersistenceManager.instance.gameData.DefendersInfos.Count; i++)
         {
