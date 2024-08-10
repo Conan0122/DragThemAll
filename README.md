@@ -30,8 +30,8 @@ For any use beyond personal projects, you must obtain explicit permission from m
 
 If you use these assets in any way that falls under the permissible use (e.g., personal projects, educational purposes), please provide appropriate credit as follows:
 
-- **Credit:** Ab Conan ([(https://github.com/Conan0122)])
-- **Link:** [(https://github.com/Conan0122/DragThemAll)]
+- **Credit:** Ab Conan [Github Profile](https://github.com/Conan0122)
+- **Link:** [Repository URL](https://github.com/Conan0122/DragThemAll)
 
 ## Contact
 
